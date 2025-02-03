@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class EventModel {
     private final EventSupplierModel eventSupplierModel = new EventSupplierModel();
 
-    public String getNextEventId() throws SQLException {
+    /*public String getNextEventId() throws SQLException {
         ResultSet rst = CrudUtil.execute("select event_id from event order by event_id desc limit 1");
 
         if (rst.next()) {
@@ -23,9 +23,9 @@ public class EventModel {
             return String.format("E%03d", newIdIndex);
         }
         return "E001";
-    }
+    }*/
 
-    public boolean saveEvent(EventDto eventDto) throws SQLException {
+    /*public boolean saveEvent(EventDto eventDto) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
 
         try {
@@ -58,5 +58,5 @@ public class EventModel {
         } finally {
             connection.setAutoCommit(true);
         }
-    }
+    }*/
 }
