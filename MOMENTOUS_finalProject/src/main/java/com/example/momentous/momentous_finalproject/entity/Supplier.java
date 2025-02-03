@@ -1,5 +1,4 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.entity;
 
 import lombok.*;
 
@@ -9,9 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 
-public class SupplierTM {
+public class Supplier {
     private String supplierId;
     private String supplierName;
     private String email;
 }
-*/

@@ -1,7 +1,9 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.SupplierBOImpl;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
-import com.example.momentous.momentous_finalproject.dto.tm.SupplierTM;
+import com.example.momentous.momentous_finalproject.view.tdm.SupplierTM;
 import com.example.momentous.momentous_finalproject.model.SupplierModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -67,7 +69,7 @@ public class SupplierViewController implements Initializable {
     @FXML
     private JFXButton updateButton;
 
-    SupplierModel supplierModel = new SupplierModel();
+    SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String EMAIL_PATTERN = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -92,7 +94,7 @@ public class SupplierViewController implements Initializable {
     private void refreshPage() {
         try{
             refreshTable();
-            String supplierId = supplierModel.getNextSupplierId();
+            String supplierId = supplierBO.getNextSupplierId();
             supplierIdLabelInfo.setText(supplierId);
 
         }catch (Exception e){
@@ -109,7 +111,7 @@ public class SupplierViewController implements Initializable {
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
-        ArrayList<SupplierDto> supplierDtos = supplierModel.getAllSuppliers();
+        ArrayList<SupplierDto> supplierDtos = supplierBO.getAllSuppliers();
         ObservableList<SupplierTM> supplierTMS = FXCollections.observableArrayList();
 
         for (SupplierDto supplierDto : supplierDtos) {
@@ -133,7 +135,7 @@ public class SupplierViewController implements Initializable {
 
         if (buttonType.get() == ButtonType.YES) {
 
-            boolean isDeleted = supplierModel.deleteSupplier(supplierId);
+            boolean isDeleted = supplierBO.deleteSupplier(supplierId);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "supplier deleted successfully").show();
@@ -155,7 +157,7 @@ public class SupplierViewController implements Initializable {
 
         if(supplierDto != null) {
             try {
-                boolean isSaved = supplierModel.saveSupplier(supplierDto);
+                boolean isSaved = supplierBO.saveSupplier(supplierDto);
 
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION, "Supplier saved successfully").show();
@@ -191,7 +193,7 @@ public class SupplierViewController implements Initializable {
 
         if(supplierDto != null) {
             try {
-                boolean isUpdate = supplierModel.updateSupplier(supplierDto);
+                boolean isUpdate = supplierBO.updateSupplier(supplierDto);
 
                 if (isUpdate) {
                     new Alert(Alert.AlertType.INFORMATION, "Supplier updated successfully").show();
