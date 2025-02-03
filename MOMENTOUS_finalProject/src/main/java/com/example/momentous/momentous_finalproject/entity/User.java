@@ -1,17 +1,13 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserTM {
+public class User {
     private String userId;
     private String firstName;
     private String lastName;
@@ -19,4 +15,3 @@ public class UserTM {
     private String email;
     private String password;
 }
-*/

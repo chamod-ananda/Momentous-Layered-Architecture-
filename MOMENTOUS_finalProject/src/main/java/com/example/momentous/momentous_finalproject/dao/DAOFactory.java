@@ -1,7 +1,6 @@
 package com.example.momentous.momentous_finalproject.dao;
 
-import com.example.momentous.momentous_finalproject.dao.custom.impl.CustomerDAOImpl;
-import com.example.momentous.momentous_finalproject.dao.custom.impl.EmployeeDAOImpl;
+import com.example.momentous.momentous_finalproject.dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;

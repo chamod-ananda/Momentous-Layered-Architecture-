@@ -1,7 +1,9 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
 import com.example.momentous.momentous_finalproject.dto.UserDto;
-import com.example.momentous.momentous_finalproject.dto.tm.UserTM;
+import com.example.momentous.momentous_finalproject.view.tdm.UserTM;
 import com.example.momentous.momentous_finalproject.model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -94,7 +96,7 @@ public class UserViewController implements Initializable {
     @FXML
     private TableView<UserTM> userViewTable;
 
-    UserModel userModel = new UserModel();
+    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -107,15 +109,15 @@ public class UserViewController implements Initializable {
 
         try {
             refreshPage();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void refreshPage() throws SQLException {
+    private void refreshPage() throws SQLException, ClassNotFoundException {
         refreshTable();
 
-        String nextUserID = userModel.getNextUserId();
+        String nextUserID = userBO.getNextUserId();
         userIdTxtField.setText(nextUserID);
 
         firstNameTxtField.setText("");
@@ -129,8 +131,8 @@ public class UserViewController implements Initializable {
         updateButton.setDisable(true);
     }
 
-    public void refreshTable() throws SQLException {
-        ArrayList<UserDto> userDtos = userModel.getAllUsers();
+    public void refreshTable() throws SQLException, ClassNotFoundException {
+        ArrayList<UserDto> userDtos = userBO.getAllUsers();
         ObservableList<UserTM> userTMS = FXCollections.observableArrayList();
 
         for (UserDto userDto : userDtos) {
@@ -148,14 +150,14 @@ public class UserViewController implements Initializable {
     }
 
     @FXML
-    void deleteButtonOnAction(ActionEvent event) throws SQLException{
+    void deleteButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String userId = userIdTxtField.getText();
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this user?", ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> buttonType = alert.showAndWait();
 
         if (buttonType.get() == ButtonType.YES) {
-            boolean isDeleted = userModel.deleteUser(userId);
+            boolean isDeleted = userBO.deleteUser(userId);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "User Deleted successfully").show();
@@ -167,12 +169,12 @@ public class UserViewController implements Initializable {
     }
 
     @FXML
-    void resetButtonOnAction(ActionEvent event) throws SQLException{
+    void resetButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         refreshPage();
     }
 
     @FXML
-    void saveButtonOnAction(ActionEvent event) throws SQLException{
+    void saveButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String userId = userIdTxtField.getText();
         String firstName = firstNameTxtField.getText();
         String lastName = lastNameTxtField.getText();
@@ -221,7 +223,7 @@ public class UserViewController implements Initializable {
         if (isValidFirstName && isValidLastName && isValidUserName && isValidEmail && isValidPassword) {
             UserDto userDto = new UserDto(userId, firstName, lastName, userName, emai, password);
 
-            boolean isSaved = userModel.saveUser(userDto);
+            boolean isSaved = userBO.saveUser(userDto);
 
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "User saved...").show();
@@ -233,7 +235,7 @@ public class UserViewController implements Initializable {
     }
 
     @FXML
-    void updateButtonOnAction(ActionEvent event) throws SQLException{
+    void updateButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String userId = userIdTxtField.getText();
         String firstName = firstNameTxtField.getText();
         String lastName = lastNameTxtField.getText();
@@ -282,7 +284,7 @@ public class UserViewController implements Initializable {
         if (isValidFirstName && isValidLastName && isValidUserName && isValidEmail && isValidPassword) {
             UserDto userDto = new UserDto(userId, firstName, lastName, userName, emai, password);
 
-            boolean isUpdated = userModel.updateUser(userDto);
+            boolean isUpdated = userBO.updateUser(userDto);
 
             if (isUpdated) {
                 new Alert(Alert.AlertType.INFORMATION, "User updated...").show();

@@ -1,5 +1,4 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.view.tdm;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,4 +18,3 @@ public class UserTM {
     private String email;
     private String password;
 }
-*/

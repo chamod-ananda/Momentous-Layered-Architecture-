@@ -1,7 +1,9 @@
-package com.example.momentous.momentous_finalproject.model;
+package com.example.momentous.momentous_finalproject.dao.custom.impl;
 
+import com.example.momentous.momentous_finalproject.dao.custom.UserDAO;
 import com.example.momentous.momentous_finalproject.db.DBConnection;
 import com.example.momentous.momentous_finalproject.dto.UserDto;
+import com.example.momentous.momentous_finalproject.entity.User;
 import com.example.momentous.momentous_finalproject.util.CrudUtil;
 
 import java.sql.Connection;
@@ -10,8 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserModel {
-    /*public boolean saveUser(UserDto userDto) throws SQLException{
+public class UserDAOImpl implements UserDAO {
+    public boolean save(UserDto userDto) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "insert into user values(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -24,9 +26,9 @@ public class UserModel {
         preparedStatement.setString(6, userDto.getPassword());
 
         return preparedStatement.executeUpdate() > 0;
-    }*/
+    }
 
-    /*public boolean updateUser(UserDto userDto) throws SQLException{
+    public boolean update(UserDto userDto) throws SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "update user set first_name = ?, last_name = ?, username = ?, email = ?, password = ? where user_id = ?";
 
@@ -39,9 +41,9 @@ public class UserModel {
         preparedStatement.setString(6, userDto.getUserId());
 
         return preparedStatement.executeUpdate() > 0;
-    }*/
+    }
 
-    /*public boolean isEmailExists(String email) throws SQLException{
+    public boolean isEmailExists(String email) throws SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "select email from user where email = ?";
 
@@ -50,9 +52,9 @@ public class UserModel {
 
         ResultSet resultSet = preparedStatement.executeQuery();
         return resultSet.next();
-    }*/
+    }
 
-    /*public String getNextUserId() throws SQLException{
+    public String getNextId() throws SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "select user_id from user order by user_id desc limit 1";
 
@@ -69,36 +71,52 @@ public class UserModel {
             return nextId;
         }
         return "U001";
-    }*/
+    }
 
-    /*public ArrayList<UserDto> getAllUsers() throws SQLException{
+    public ArrayList<User> getAll() throws SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "select * from user";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        ArrayList<UserDto> userDtos = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
 
         while (resultSet.next()){
-            UserDto userDto = new UserDto(
-                resultSet.getString("user_id"),
-                resultSet.getString("first_name"),
-                resultSet.getString("last_name"),
-                resultSet.getString("username"),
-                resultSet.getString("email"),
-                resultSet.getString("password")
+            User user = new User(
+                    resultSet.getString("user_id"),
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("username"),
+                    resultSet.getString("email"),
+                    resultSet.getString("password")
             );
-            userDtos.add(userDto);
+            users.add(user);
         }
-        return userDtos;
-    }*/
+        return users;
+    }
 
-    /*public boolean deleteUser(String userId) throws SQLException {
+    @Override
+    public boolean save(User entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    public boolean delete(String userId) throws SQLException {
         return CrudUtil.execute("delete from user where user_id = ?", userId);
     }
 
-    public ArrayList<String> getAllUserIds() throws SQLException{
+    @Override
+    public boolean update(User entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public User findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select user_id from user");
 
         ArrayList<String> userIds = new ArrayList<>();
@@ -107,9 +125,9 @@ public class UserModel {
             userIds.add(rst.getString(1));
         }
         return userIds;
-    }*/
+    }
 
-    /*public UserDto findBy(String selecctedUserId) throws SQLException {
+    public UserDto findBy(String selecctedUserId) throws SQLException {
         ResultSet rst = CrudUtil.execute("select * from user where user_id = ?", selecctedUserId);
 
         if (rst.next()) {
@@ -123,5 +141,5 @@ public class UserModel {
             );
         }
         return null;
-    }*/
+    }
 }
