@@ -5,6 +5,7 @@ import com.example.momentous.momentous_finalproject.bo.CompleteEventBO;
 import com.example.momentous.momentous_finalproject.bo.ItemBO;
 import com.example.momentous.momentous_finalproject.dao.DAOFactory;
 import com.example.momentous.momentous_finalproject.dao.custom.impl.EventDAOImpl;
+import com.example.momentous.momentous_finalproject.dao.custom.impl.EventSupplierDAOImpl;
 import com.example.momentous.momentous_finalproject.dao.custom.impl.ItemDAOImpl;
 import com.example.momentous.momentous_finalproject.dao.custom.impl.SupplierDAOImpl;
 import com.example.momentous.momentous_finalproject.db.DBConnection;
@@ -12,6 +13,7 @@ import com.example.momentous.momentous_finalproject.dto.EventDto;
 import com.example.momentous.momentous_finalproject.dto.ItemDto;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
 import com.example.momentous.momentous_finalproject.entity.Event;
+import com.example.momentous.momentous_finalproject.entity.EventSupplier;
 import com.example.momentous.momentous_finalproject.entity.Item;
 import com.example.momentous.momentous_finalproject.entity.Supplier;
 
@@ -100,7 +102,7 @@ public class CompleteEventBOImpl implements CompleteEventBO {
             }
 
             // Save booking services
-            boolean isSaved = eventSupplierDAO.saveEventSuppliersList(event.getEventSuppliersList());
+            boolean isSaved = eventSupplierDAO.saveEventSuppliersList(event.geteventSupplierList());
             if (!isSaved) {
                 connection.rollback(); // Rollback on failure
                 return false;

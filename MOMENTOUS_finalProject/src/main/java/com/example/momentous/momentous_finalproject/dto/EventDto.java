@@ -1,5 +1,6 @@
 package com.example.momentous.momentous_finalproject.dto;
 
+import com.example.momentous.momentous_finalproject.entity.EventSupplier;
 import lombok.*;
 
 import java.sql.Date;

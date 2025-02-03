@@ -21,5 +21,5 @@ public class Event {
     private String venue;
     private Date date;
 
-    private ArrayList<EventSupplierDto> eventSupplierDtos;
+    private ArrayList<EventSupplier> eventSupplierList;
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class EventSupplierModel {
     private final ItemModel itemModel = new ItemModel();
 
-    public boolean saveEventSuppliersList(ArrayList<EventSupplierDto> eventSupplierDtos) throws SQLException, ClassNotFoundException {
+    /*public boolean saveEventSuppliersList(ArrayList<EventSupplierDto> eventSupplierDtos) throws SQLException, ClassNotFoundException {
         for (EventSupplierDto eventSupplierDto : eventSupplierDtos) {
             // Save the event supplier
             boolean isEventSupplierSaved = saveEventSuppliers(eventSupplierDto);
@@ -28,10 +28,10 @@ public class EventSupplierModel {
 
         // All operations succeeded
         return true;
-    }
+    }*/
 
 
-    private boolean saveEventSuppliers(EventSupplierDto eventSupplierDto) throws SQLException {
+    /*private boolean saveEventSuppliers(EventSupplierDto eventSupplierDto) throws SQLException {
         return CrudUtil.execute(
                 "insert into EventSupplier values (?,?,?,?)",
                 eventSupplierDto.getEventId(),
@@ -39,5 +39,5 @@ public class EventSupplierModel {
                 eventSupplierDto.getItemQuantity(),
                 eventSupplierDto.getTotalPrice()
         );
-    }
+    }*/
 }
