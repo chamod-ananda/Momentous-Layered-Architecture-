@@ -1,5 +1,4 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.view.tdm;
 
 import lombok.*;
 
@@ -16,4 +15,3 @@ public class ServiceTM {
 
 
 }
-*/

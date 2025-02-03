@@ -1,7 +1,9 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.ServiceBOImpl;
 import com.example.momentous.momentous_finalproject.dto.ServiceDto;
-import com.example.momentous.momentous_finalproject.dto.tm.ServiceTM;
+import com.example.momentous.momentous_finalproject.view.tdm.ServiceTM;
 import com.example.momentous.momentous_finalproject.model.ServiceModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -64,7 +66,7 @@ public class ServiceViewController implements Initializable {
     @FXML
     private JFXButton updateButton;
 
-    private final ServiceModel serviceModel = new ServiceModel();
+    private final ServiceBOImpl serviceBO = (ServiceBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
 
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 
@@ -90,7 +92,7 @@ public class ServiceViewController implements Initializable {
         refreshTable();
 
         try{
-            String serviceId = serviceModel.getNextServiceId();
+            String serviceId = serviceBO.getNextServiceId();
             serviceIdInfo.setText(serviceId);
         }catch(Exception e){
             e.printStackTrace();
@@ -104,7 +106,7 @@ public class ServiceViewController implements Initializable {
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
 
-        ArrayList<ServiceDto> serviceDtos = serviceModel.getAllServices();
+        ArrayList<ServiceDto> serviceDtos = serviceBO.getAllServices();
         ObservableList<ServiceTM> serviceTMS= FXCollections.observableArrayList();
 
         for (ServiceDto serviceDto : serviceDtos) {
@@ -128,7 +130,7 @@ public class ServiceViewController implements Initializable {
 
         if (buttonType.get() == ButtonType.YES) {
 
-            boolean isDeleted = serviceModel.deleteService(serviceId);
+            boolean isDeleted = serviceBO.deleteService(serviceId);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "service deleted successfully").show();
@@ -151,7 +153,7 @@ public class ServiceViewController implements Initializable {
 
         if(serviceDto != null) {
             try {
-                boolean isSaved = serviceModel.saveService(serviceDto);
+                boolean isSaved = serviceBO.saveService(serviceDto);
 
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION, "Service saved successfully").show();
@@ -209,7 +211,7 @@ public class ServiceViewController implements Initializable {
 
         if(serviceDto != null) {
             try {
-                boolean isUpdate = serviceModel.updateService(serviceDto);
+                boolean isUpdate = serviceBO.updateService(serviceDto);
 
                 if (isUpdate) {
                     new Alert(Alert.AlertType.INFORMATION, "Service updated successfully").show();

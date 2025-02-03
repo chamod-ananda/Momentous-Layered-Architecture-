@@ -1,14 +1,16 @@
-package com.example.momentous.momentous_finalproject.model;
+package com.example.momentous.momentous_finalproject.dao.custom.impl;
 
+import com.example.momentous.momentous_finalproject.dao.custom.ServiceDAO;
 import com.example.momentous.momentous_finalproject.dto.ServiceDto;
+import com.example.momentous.momentous_finalproject.entity.Service;
 import com.example.momentous.momentous_finalproject.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ServiceModel {
-    /*public ArrayList<String> getAllServiceIds() throws SQLException, ClassNotFoundException {
+public class ServiceDAOImpl implements ServiceDAO {
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select service_id from service");
 
         ArrayList<String> serviceIds = new ArrayList<>();
@@ -18,22 +20,22 @@ public class ServiceModel {
         }
 
         return serviceIds;
-    }*/
+    }
 
-    /*public ServiceDto findById(String selectedServiceId) throws SQLException, ClassNotFoundException {
+    public Service findById(String selectedServiceId) throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select * from service where service_id=?", selectedServiceId);
 
         if (rst.next()) {
-            return new ServiceDto(
+            return new Service(
                     rst.getString(1),
                     rst.getDouble(2),
                     rst.getString(3)
             );
         }
         return null;
-    }*/
+    }
 
-    /*public String getNextServiceId() throws SQLException, ClassNotFoundException {
+    public String getNextId() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1");
 
         if (rst.next()) {
@@ -44,42 +46,42 @@ public class ServiceModel {
             return String.format("S%03d", newIndex);
         }
         return "S001";
-    }*/
+    }
 
-    /*public ArrayList<ServiceDto> getAllServices() throws SQLException, ClassNotFoundException {
+    public ArrayList<Service> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select * from service");
 
-        ArrayList<ServiceDto> serviceDtos = new ArrayList<>();
+        ArrayList<Service> services = new ArrayList<>();
 
         while (rst.next()) {
-            ServiceDto serviceDto = new ServiceDto(
+            Service entity = new Service(
                     rst.getString(1),
                     rst.getDouble(2),
                     rst.getString(3)
             );
-            serviceDtos.add(serviceDto);
+            services.add(entity);
         }
-        return serviceDtos;
-    }*/
+        return services;
+    }
 
-    /*public boolean saveService(ServiceDto serviceDto) throws SQLException, ClassNotFoundException {
+    public boolean save(ServiceDto serviceDto) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into service values(?,?,?)",
                 serviceDto.getServiceId(),
                 serviceDto.getPrice(),
                 serviceDto.getServiceType()
         );
-    }*/
+    }
 
-    /*public boolean updateService(ServiceDto serviceDto) throws SQLException, ClassNotFoundException {
+    public boolean update(ServiceDto serviceDto) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute(
                 "update service set  price = ?, service_type = ? where service_id = ?",
                 serviceDto.getPrice(),
                 serviceDto.getServiceType(),
                 serviceDto.getServiceId()
         );
-    }*/
+    }
 
-    /*public boolean deleteService(String serviceId) throws SQLException, ClassNotFoundException {
+    public boolean delete(String serviceId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from service where service_id=?", serviceId);
-    }*/
+    }
 }
