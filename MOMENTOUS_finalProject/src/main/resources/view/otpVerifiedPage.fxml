@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backgroundPane6" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #C3B091;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.OtpVerifiedPageController">
+   <children>
+      <AnchorPane fx:id="bodyPane6" layoutX="57.0" layoutY="37.0" prefHeight="693.0" prefWidth="1251.0" style="-fx-background-color: #FFE6BC; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="84.0" layoutX="1165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_1.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="verifyLabel" layoutX="64.0" layoutY="101.0" prefHeight="72.0" prefWidth="405.0" text="OTP Verified">
+               <font>
+                  <Font name="Constantia Bold" size="48.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="194.0" prefHeight="34.0" prefWidth="366.0" text="Enter your new password to continue" textFill="#7e7c7c">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="250.0" prefHeight="26.0" prefWidth="119.0" text="New Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="passwordVisible2Txt" layoutX="64.0" layoutY="287.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" />
+            <PasswordField fx:id="passwordField2" layoutX="64.0" layoutY="287.0" prefHeight="46.0" prefWidth="389.0" promptText="Enter new password" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <ImageView fx:id="eyeImage2" fitHeight="26.0" fitWidth="33.0" layoutX="414.0" layoutY="297.0" onMouseClicked="#eyeImage2OnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_2.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="passwordVisible3Txt" layoutX="64.0" layoutY="397.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" />
+            <Label layoutX="64.0" layoutY="357.0" prefHeight="26.0" prefWidth="145.0" text="Confirm Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField3" layoutX="64.0" layoutY="397.0" prefHeight="46.0" prefWidth="389.0" promptText="Re-Enter your password" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <ImageView fx:id="eyeImage3" fitHeight="26.0" fitWidth="33.0" layoutX="414.0" layoutY="407.0" onMouseClicked="#eyeImage3OnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="errorLabel3" layoutX="64.0" layoutY="496.0" prefHeight="18.0" prefWidth="521.0" />
+            <JFXButton fx:id="resetPwdButton" buttonType="RAISED" layoutX="193.0" layoutY="597.0" onAction="#resetPwdButtonOnAction" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: #C3B091; -fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" text="Reset Password" textFill="#ef0606">
+               <font>
+                  <Font name="Constantia Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="540.0" fitWidth="522.0" layoutX="643.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_9.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="eyImage" fitHeight="46.0" fitWidth="50.0" layoutX="18.0" layoutY="27.0" onMouseClicked="#eyeImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_7.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

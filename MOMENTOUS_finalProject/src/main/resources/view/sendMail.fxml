@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mailPane" prefHeight="487.0" prefWidth="675.0" style="-fx-background-color: FFDBB5; -fx-border-color: #1e272e;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.SendMailController">
+   <children>
+      <Label layoutX="264.0" layoutY="31.0" text="Send Email">
+         <font>
+            <Font name="Constantia Bold" size="28.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7803921699523926" green="0.5529412031173706" blue="0.21176470816135406" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9973082099596231">
+                     <color>
+                        <Color red="0.21286550164222717" green="0.21968810260295868" blue="0.2210526317358017" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3686274588108063" green="0.3607843220233917" blue="0.3490196168422699" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.8745098114013672" green="0.5529412031173706" blue="0.03921568766236305" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <TextField fx:id="subjectTxtField" layoutX="32.0" layoutY="106.0" prefHeight="34.0" prefWidth="612.0" promptText="Subject" style="-fx-background-color: FFDBB5; -fx-border-color: #1e272e; -fx-border-width: 0 0 1.5px 0;" />
+      <TextArea fx:id="bodyTxtArea" layoutX="32.0" layoutY="168.0" prefHeight="202.0" prefWidth="612.0" promptText="Body" style="-fx-border-color: #1e272e;" />
+      <JFXButton fx:id="sendButton" buttonType="RAISED" layoutX="539.0" layoutY="411.0" onAction="#sendButtonOnAction" prefHeight="34.0" prefWidth="105.0" style="-fx-background-color: #C3B091; -fx-background-radius: 8; -fx-border-color: #1e272e; -fx-border-radius: 8;" text="Send" textFill="#0776ed">
+         <font>
+            <Font name="Constantia Bold Italic" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

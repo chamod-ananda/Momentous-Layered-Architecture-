@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashAnchorPane" prefHeight="666.0" prefWidth="984.0" style="-fx-background-radius: 20; -fx-background-color: FFDBB5;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.DashboardLoadController">
+   <children>
+      <ImageView fitHeight="71.0" fitWidth="131.0" layoutX="899.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image_1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="185.0" text="Imagine your vision coming to life, effortlessly.">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="23.0" layoutY="220.0" text="Our event planning app is crafted to enhance every part of the">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="23.0" layoutY="295.0" text="fine-tune budgets, synchronize with vendors,">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="23.0" layoutY="370.0" text="Whether it's an intimate soirée or a grand affair,">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="23.0" layoutY="410.0" text="we’re here to help you craft a celebration that will linger in">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="23.0" layoutY="85.0" text="Flawless Planning for Unforgettable Moments">
+         <font>
+            <Font name="Constantia Bold Italic" size="25.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9300000071525574" green="0.03720000013709068" blue="0.6807413101196289" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <Glow level="0.51">
+               <input>
+                  <DropShadow spread="0.09">
+                     <color>
+                        <Color red="0.8999999761581421" green="0.351776659488678" blue="0.035999998450279236" />
+                     </color>
+                  </DropShadow>
+               </input>
+            </Glow>
+         </effect>
+      </Label>
+      <ImageView fx:id="image_10" fitHeight="546.0" fitWidth="347.0" layoutX="563.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image_10.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="257.0" text="planning journey,">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="169.0" layoutY="257.0" text="empowering you to orchestrate bookings,">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="23.0" layoutY="333.0" text="and capture every nuance that defines your unique style.">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="23.0" layoutY="451.0" text="hearts and memories long after the day has passed.">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.5" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06028182804584503" green="0.04349999874830246" blue="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03720000013709068" green="0.7305930852890015" blue="0.9300000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fx:id="logOutIcon" fitHeight="47.0" fitWidth="45.0" layoutX="925.0" layoutY="607.0" onMouseClicked="#logOutIconOnClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image_13.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

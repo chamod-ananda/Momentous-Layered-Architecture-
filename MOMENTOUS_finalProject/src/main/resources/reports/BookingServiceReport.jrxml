@@ -1,0 +1,95 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="BookingServiceReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8f04cbf3-4be1-41f4-a57b-275ddcc68247">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (7)"/>
+	<parameter name="today" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[select * from bookingService;]]></query>
+	<field name="booking_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookingservice"/>
+	</field>
+	<field name="service_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="service_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="service_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookingservice"/>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="date"/>
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookingservice"/>
+	</field>
+	<group name="booking_id">
+		<expression><![CDATA[$F{booking_id}]]></expression>
+	</group>
+	<group name="service_id">
+		<expression><![CDATA[$F{service_id}]]></expression>
+	</group>
+	<group name="date">
+		<expression><![CDATA[$F{date}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="c08c4218-f59b-4d19-a952-e5a7ac5e6795" x="30" y="10" width="500" height="60" forecolor="#0B1F85" backcolor="#BAB6B6" fontName="Calibri" fontSize="18.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Booking Service Report]]></text>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid" lineColor="#080808"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="51101793-1f0f-40d3-8979-cd7e0573e731" x="420" y="36" width="100" height="30" fontName="Calibri" fontSize="14.0" bold="true" italic="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{today}]]></expression>
+		</element>
+	</title>
+	<pageHeader height="4" splitType="Stretch"/>
+	<columnHeader height="33" splitType="Stretch">
+		<element kind="staticText" uuid="8b4180ed-6f09-4162-9716-ef7785bca5e1" x="0" y="0" width="185" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[booking_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="80be57e7-59a1-4160-8b8a-256bc095efa3"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="6d7122c0-2e86-4e25-a034-d37e3c21281a" x="185" y="0" width="185" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[service_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e552f67-f571-4218-a3b6-016b316c8465"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a148d7ac-3436-46a9-829d-a25583a68a88" x="370" y="0" width="185" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d595442-9726-4489-b54f-f9180fe59c43"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<element kind="textField" uuid="1e673705-03b2-4000-a453-f10201375f35" x="0" y="0" width="185" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{booking_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="80be57e7-59a1-4160-8b8a-256bc095efa3"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b9464472-488a-4d4c-958f-1434be2b0b4b" x="185" y="0" width="185" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{service_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e552f67-f571-4218-a3b6-016b316c8465"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="745316d3-bd0d-4908-8c67-51fb74f7a990" x="370" y="0" width="185" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d595442-9726-4489-b54f-f9180fe59c43"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

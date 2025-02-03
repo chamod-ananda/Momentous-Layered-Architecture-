@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backgroundPane5" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #C3B091;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.OtpPageController">
+   <children>
+      <AnchorPane fx:id="bodyPane5" layoutX="57.0" layoutY="37.0" prefHeight="693.0" prefWidth="1251.0" style="-fx-background-color: #FFE6BC; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="390.0" layoutY="178.0" prefHeight="50.0" prefWidth="470.0" text="Enter OTP number sent your Email address">
+               <font>
+                  <Font name="Constantia" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="otp1Txt" layoutX="440.0" layoutY="243.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="50.0" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" />
+            <TextField fx:id="otp2Txt" layoutX="542.0" layoutY="243.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="50.0" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" />
+            <TextField fx:id="otp3Txt" layoutX="645.0" layoutY="243.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="50.0" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" />
+            <TextField fx:id="otp4Txt" layoutX="746.0" layoutY="243.0" onKeyReleased="#submitOtpOnEnter" prefHeight="60.0" prefWidth="50.0" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" />
+            <Label fx:id="timerLabel" layoutX="494.0" layoutY="338.0" prefHeight="26.0" prefWidth="150.0" text="Try again in 2:00" textFill="#ef0404">
+               <font>
+                  <Font name="Constantia Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="resendLabel" layoutX="654.0" layoutY="338.0" onMouseClicked="#resendLabelOnMouseClicked" prefHeight="26.0" prefWidth="72.0" text="Resend" textFill="#0717e8">
+               <font>
+                  <Font name="Constantia Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="verifyButton" buttonType="RAISED" layoutX="565.0" layoutY="475.0" onAction="#verifyButtonOnAction" prefHeight="38.0" prefWidth="118.0" style="-fx-background-color: #C3B091; -fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" text="Verify" textFill="#00ff9c">
+               <font>
+                  <Font name="Constantia Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="479.0" fitWidth="373.0" layoutX="860.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_8.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="errorLabel2" layoutX="364.0" layoutY="371.0" prefHeight="18.0" prefWidth="521.0" />
+            <ImageView fitHeight="72.0" fitWidth="84.0" layoutX="1165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backImage" fitHeight="50.0" fitWidth="39.0" layoutX="28.0" layoutY="31.0" onMouseClicked="#backImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_7.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

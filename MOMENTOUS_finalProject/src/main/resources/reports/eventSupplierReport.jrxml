@@ -1,0 +1,117 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="eventSupplierReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="09eeaf8e-76eb-45fe-b1e1-8f9a587d3a0f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5)"/>
+	<parameter name="today" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[select * from eventsupplier;]]></query>
+	<field name="event_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="event_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="event_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="eventsupplier"/>
+	</field>
+	<field name="supplier_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="supplier_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="supplier_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="eventsupplier"/>
+	</field>
+	<field name="itemQty" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="itemQty"/>
+		<property name="com.jaspersoft.studio.field.label" value="itemQty"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="eventsupplier"/>
+	</field>
+	<field name="price" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="price"/>
+		<property name="com.jaspersoft.studio.field.label" value="price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="eventsupplier"/>
+	</field>
+	<group name="event_id">
+		<expression><![CDATA[$F{event_id}]]></expression>
+	</group>
+	<group name="supplier_id">
+		<expression><![CDATA[$F{supplier_id}]]></expression>
+	</group>
+	<group name="itemQty">
+		<expression><![CDATA[$F{itemQty}]]></expression>
+	</group>
+	<group name="price">
+		<expression><![CDATA[$F{price}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="422e030a-0ecf-4afc-8c65-331fccc298b1" x="30" y="10" width="500" height="60" forecolor="#0B1F85" backcolor="#C2C0C0" fontName="Calibri" fontSize="20.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Event Supplier Report]]></text>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid" lineColor="#080808"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="23faf0c0-2a63-4dd8-af18-68068e77bf89" x="420" y="34" width="100" height="30" fontName="Calibri" fontSize="14.0" bold="true" italic="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{today}]]></expression>
+		</element>
+	</title>
+	<pageHeader height="3" splitType="Stretch"/>
+	<columnHeader height="34" splitType="Stretch">
+		<element kind="staticText" uuid="4ffbc534-7415-447a-b5d3-f734851e337d" x="0" y="0" width="141" height="30" fontName="Calibri" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Event ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67603dd4-6e34-43e2-a887-19a2d4b5d76c"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0fb10357-7a49-40be-8ccf-6571ebc8f4eb" x="141" y="0" width="138" height="30" fontName="Calibri" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Supplier ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="44d31d48-bb96-43e5-ae2d-725c10d704c7"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f791820e-bbff-4d5a-89bd-f7536686a194" x="279" y="0" width="138" height="30" fontName="Calibri" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Item Quantity]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="492788c0-637f-4c70-900c-94e8e9b074fc"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="af817e90-9698-4bea-ac87-c568de632a86" x="417" y="0" width="138" height="30" fontName="Calibri" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Price]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27eeab74-d6d4-4e0d-a45e-13c27ae639da"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<element kind="textField" uuid="d28ccaca-0ae4-4fb8-87d2-7f23ea790b94" x="0" y="0" width="141" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{event_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="67603dd4-6e34-43e2-a887-19a2d4b5d76c"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="c44cb9f8-b790-477a-8e8d-6bfdbf7152bc" x="141" y="0" width="138" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{supplier_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="44d31d48-bb96-43e5-ae2d-725c10d704c7"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="a394e60e-4803-41d3-a63d-22177ee68aad" x="279" y="0" width="138" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{itemQty}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="492788c0-637f-4c70-900c-94e8e9b074fc"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="5ea25783-020a-4a3e-936a-0073e64c6b74" x="417" y="0" width="138" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{price}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27eeab74-d6d4-4e0d-a45e-13c27ae639da"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

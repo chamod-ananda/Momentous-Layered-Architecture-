@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backPane11" prefHeight="666.0" prefWidth="984.0" style="-fx-background-color: FFDBB5; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.UserViewController">
+   <children>
+      <ImageView fitHeight="57.0" fitWidth="91.0" layoutX="913.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image_1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="userIdLabel" layoutX="27.0" layoutY="63.0" text="User ID">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userIdTxtField" layoutX="121.0" layoutY="57.0" prefHeight="27.0" prefWidth="244.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <Label fx:id="firstNameLabel" layoutX="27.0" layoutY="111.0" text="First Name">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="firstNameTxtField" layoutX="121.0" layoutY="107.0" prefHeight="6.0" prefWidth="244.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <Label fx:id="userNameLabel" layoutX="438.0" layoutY="63.0" text="User Name">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userNameTxtField" layoutX="550.0" layoutY="59.0" prefHeight="27.0" prefWidth="422.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <Label fx:id="lastNameLabel" layoutX="27.0" layoutY="160.0" text="Last Name">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="lastNameTxtField" layoutX="121.0" layoutY="156.0" prefHeight="6.0" prefWidth="244.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <Label fx:id="emailLabel" layoutX="438.0" layoutY="111.0" text="Email">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailLabelTxtField" layoutX="550.0" layoutY="107.0" prefHeight="27.0" prefWidth="422.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <JFXButton fx:id="resetButton" buttonType="RAISED" layoutX="28.0" layoutY="221.0" onAction="#resetButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #C3B091; -fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8;" text="Reset">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteButton" buttonType="RAISED" layoutX="306.0" layoutY="221.0" onAction="#deleteButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #C3B091; -fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8;" text="Delete" textFill="#e80707">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="updateButton" buttonType="RAISED" layoutX="607.0" layoutY="221.0" onAction="#updateButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #C3B091; -fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8;" text="Update">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="saveButton" buttonType="RAISED" layoutX="884.0" layoutY="221.0" onAction="#saveButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #C3B091; -fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8;" text="Save" textFill="#00ff9c">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="userViewTable" layoutX="28.0" layoutY="271.0" onMouseClicked="#userViewTableOnClick" prefHeight="383.0" prefWidth="943.0">
+        <columns>
+          <TableColumn fx:id="userIdColumn" prefWidth="95.99996566772461" text="User ID" />
+          <TableColumn fx:id="firstNameColumn" prefWidth="140.80003356933594" text="First Name" />
+            <TableColumn fx:id="lastNameColumn" prefWidth="167.199951171875" text="Last Name" />
+            <TableColumn fx:id="userNameColumn" prefWidth="151.199951171875" text="User Name" />
+            <TableColumn fx:id="emailColumn" prefWidth="210.4000244140625" text="Email" />
+            <TableColumn fx:id="passwordColumn" prefWidth="171.2000732421875" text="Password" />
+        </columns>
+      </TableView>
+      <Label fx:id="passwordLabel" layoutX="438.0" layoutY="160.0" text="Password">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="passwordLabelTxtField" layoutX="550.0" layoutY="156.0" prefHeight="19.0" prefWidth="422.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backgroundPane3" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #C3B091;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.RegisterPage2Controller">
+   <children>
+      <AnchorPane fx:id="bodyPane3" layoutX="57.0" layoutY="37.0" prefHeight="693.0" prefWidth="1251.0" style="-fx-background-color: #FFE6BC; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="84.0" layoutX="1165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="130.0" layoutY="637.0" prefHeight="27.0" prefWidth="258.0" text="Already have an Acoount?" textFill="#999494">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="logInLabel2" layoutX="388.0" layoutY="637.0" onMouseClicked="#logInLabel2OnMouseClicked" prefHeight="30.0" prefWidth="72.0" text="Log In" textFill="#9c6512">
+               <font>
+                  <Font name="Constantia Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="183.0" prefHeight="30.0" prefWidth="90.0" text="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="uNameTxt" layoutX="68.0" layoutY="221.0" prefHeight="46.0" prefWidth="389.0" promptText="Enter user name" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="68.0" layoutY="283.0" prefHeight="30.0" prefWidth="90.0" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pwdField" layoutX="67.0" layoutY="325.0" prefHeight="46.0" prefWidth="390.0" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Label layoutX="64.0" layoutY="395.0" prefHeight="30.0" prefWidth="137.0" text="Confirm Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="conPwdField" layoutX="64.0" layoutY="435.0" prefHeight="46.0" prefWidth="390.0" promptText="Re-Enter your password" style="-fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Label fx:id="errorLabel" layoutX="64.0" layoutY="522.0" prefHeight="18.0" prefWidth="522.0" />
+            <JFXButton fx:id="registerButton" buttonType="RAISED" layoutX="237.0" layoutY="571.0" onAction="#registerButtonOnAction" prefHeight="38.0" prefWidth="115.0" style="-fx-background-color: #C3B091; -fx-background-radius: 10; -fx-border-color: #1e272e; -fx-border-radius: 10;" text="Register">
+               <font>
+                  <Font name="Constantia Bold" size="19.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="516.0" fitWidth="498.0" layoutX="669.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_5.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backImage" fitHeight="46.0" fitWidth="45.0" layoutX="19.0" layoutY="28.0" onMouseClicked="#backImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_7.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="68.0" layoutY="80.0" prefHeight="80.0" prefWidth="639.0" text="Register to MOMENTOUS">
+               <font>
+                  <Font name="Constantia Bold" size="48.0" />
+               </font>
+               <effect>
+                  <DropShadow height="38.85" radius="20.310000000000002" spread="0.06" width="44.39">
+                     <color>
+                        <Color red="0.8745098114013672" green="0.5529412031173706" blue="0.03921568766236305" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <textFill>
+                  <RadialGradient centerX="0.4601770080296339" centerY="0.5871211832219905" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7803921699523926" green="0.5529412031173706" blue="0.21176470816135406" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3686274588108063" green="0.3607843220233917" blue="0.3490196168422699" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

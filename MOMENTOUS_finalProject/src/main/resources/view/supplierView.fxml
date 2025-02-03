@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="backPane2" prefHeight="666.0" prefWidth="984.0" style="-fx-background-color: FFDBB5; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.SupplierViewController">
+   <children>
+      <ImageView fitHeight="57.0" fitWidth="91.0" layoutX="913.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image_1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="supplierIdLabel" layoutX="36.0" layoutY="34.0" text="Supplier ID">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="supplierIdLabelInfo" layoutX="186.0" layoutY="29.0" prefHeight="27.0" prefWidth="170.0" />
+      <Label fx:id="supplierNameLabel" layoutX="36.0" layoutY="89.0" text="Supplier Name">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="supplierNameTxtField" layoutX="186.0" layoutY="85.0" prefHeight="27.0" prefWidth="514.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <Label fx:id="emailLabel" layoutX="36.0" layoutY="154.0" text="Email">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailTxtField" layoutX="186.0" layoutY="150.0" prefHeight="27.0" prefWidth="662.0" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;" />
+      <JFXButton fx:id="resetButton" buttonType="RAISED" layoutX="573.0" layoutY="204.0" onAction="#resetButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Reset">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteButton" buttonType="RAISED" layoutX="677.0" layoutY="204.0" onAction="#deleteButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Delete" textFill="#e80707">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="updateButton" buttonType="RAISED" layoutX="779.0" layoutY="204.0" onAction="#updateButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Update">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="saveButton" buttonType="RAISED" layoutX="884.0" layoutY="204.0" onAction="#saveButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Save" textFill="#00ff9c">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="supplierViewTable" layoutX="36.0" layoutY="273.0" onMouseClicked="#supplierViewTableOnClick" prefHeight="370.0" prefWidth="934.0">
+        <columns>
+          <TableColumn fx:id="supplierIdColumn" prefWidth="217.60002899169922" text="Supplier ID" />
+          <TableColumn fx:id="supplierNameColumn" prefWidth="340.8000793457031" text="Supplier Name" />
+            <TableColumn fx:id="emailColumn" prefWidth="370.4000244140625" text="Email" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

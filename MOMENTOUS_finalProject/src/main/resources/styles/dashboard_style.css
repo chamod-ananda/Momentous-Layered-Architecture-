@@ -1,0 +1,25 @@
+.nav-button {
+    -fx-pref-height: 117px;
+    -fx-pref-width: 32px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-width: 2;
+}
+
+.active-button {
+    -fx-background-color: linear-gradient(to right, #EED3B1,  #C3B091);
+    -fx-text-fill: #1e272e;
+    -fx-border-color: #FFDBB5;
+    -fx-border-width: 2;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.inactive-button {
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to right, #FFDBB5,  #7b7a78);
+    -fx-border-width: 2;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-text-fill: #1e272e;
+}

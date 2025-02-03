@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="666.0" prefWidth="984.0" style="-fx-background-color: FFDBB5; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.ServiceViewController">
+   <children>
+      <ImageView fitHeight="57.0" fitWidth="91.0" layoutX="913.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image_1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="serviceIdLabel" layoutX="36.0" layoutY="34.0" text="Service ID">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="serviceIdInfo" layoutX="161.0" layoutY="29.0" prefHeight="30.0" prefWidth="171.0" />
+      <Label fx:id="serviceTypeLabel" layoutX="36.0" layoutY="89.0" text="Service Type">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="serviceTypeComBox" layoutX="161.0" layoutY="87.0" prefHeight="30.0" prefWidth="171.0" promptText="Choose Service Type" />
+      <Label fx:id="priceLabel" layoutX="36.0" layoutY="150.0" text="Price">
+         <font>
+            <Font name="Constantia Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="priceTxtField" layoutX="161.0" layoutY="145.0" prefHeight="30.0" prefWidth="255.0" promptText="Enter price here" style="-fx-background-color: FFDBB5; -fx-border-color: #84817a; -fx-border-width: 0 0 1.5px 0;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="resetButton" buttonType="RAISED" layoutX="560.0" layoutY="200.0" onAction="#resetButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Reset">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteButton" buttonType="RAISED" layoutX="664.0" layoutY="200.0" onAction="#deleteButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Delete" textFill="#e80707">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="updateButton" buttonType="RAISED" layoutX="766.0" layoutY="200.0" onAction="#updateButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Update">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="saveButton" buttonType="RAISED" layoutX="871.0" layoutY="200.0" onAction="#saveButtonOnAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-border-color: #1A1A19; -fx-border-radius: 8; -fx-background-color: #C3B091;" text="Save" textFill="#00ff9c">
+         <font>
+            <Font name="Constantia Bold Italic" size="16.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="serviceViewTable" layoutX="37.0" layoutY="253.0" onMouseClicked="#serviceViewTableOnClick" prefHeight="402.0" prefWidth="924.0">
+        <columns>
+          <TableColumn fx:id="serviceIdColumn" prefWidth="156.79999160766602" text="Service ID" />
+          <TableColumn fx:id="serviceTypeColumn" minWidth="0.0" prefWidth="479.1999969482422" text="Service Type" />
+            <TableColumn fx:id="priceColumn" prefWidth="284.80010986328125" text="Price" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

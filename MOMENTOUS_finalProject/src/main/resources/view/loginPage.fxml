@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backgroundPane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #C3B091;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.momentous.momentous_finalproject.controller.LoginPageController">
+   <children>
+      <AnchorPane fx:id="bodyPane" layoutX="57.0" layoutY="37.0" prefHeight="693.0" prefWidth="1251.0" style="-fx-background-color: #FFE6BC; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="84.0" layoutX="1156.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="73.0" layoutY="109.0" prefHeight="80.0" prefWidth="639.0" text="Welcome to MOMENTOUS">
+               <font>
+                  <Font name="Constantia Bold" size="48.0" />
+               </font>
+               <effect>
+                  <DropShadow height="38.85" radius="20.310000000000002" spread="0.06" width="44.39">
+                     <color>
+                        <Color red="0.8745098114013672" green="0.5529412031173706" blue="0.03921568766236305" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <textFill>
+                  <RadialGradient centerX="0.4601770080296339" centerY="0.5871211832219905" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7803921699523926" green="0.5529412031173706" blue="0.21176470816135406" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3686274588108063" green="0.3607843220233917" blue="0.3490196168422699" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="73.0" layoutY="616.0" text="Don't have an Account?" textFill="#999494">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="newAccountLabel" layoutX="306.0" layoutY="619.0" onMouseClicked="#newAccountOnMouseClicked" text="Create a New Account" textFill="#9c6512">
+               <font>
+                  <Font name="Constantia Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="80.0" layoutY="224.0" text="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userNameTxt" layoutX="80.0" layoutY="264.0" prefHeight="46.0" prefWidth="389.0" promptText="Enter username" style="-fx-background-radius: 10; -fx-border-color: #2C3A47; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="85.0" layoutY="332.0" prefHeight="26.0" prefWidth="82.0" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="forgotPwdLabel" layoutX="330.0" layoutY="478.0" onMouseClicked="#forgotPwdOnMouseClicked" text="Forgot Password?" textFill="#868383">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="492.0" fitWidth="506.0" layoutX="683.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_3.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="logInButton" buttonType="RAISED" layoutX="207.0" layoutY="532.0" onAction="#logInButtonOnAction" prefHeight="39.0" prefWidth="134.0" style="-fx-background-color: #C3B091; -fx-background-radius: 10; -fx-border-color: #2C3A47; -fx-border-radius: 10;" text="Log In" textFill="#00ff9c">
+               <font>
+                  <Font name="Constantia Bold" size="19.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="pwdVisibleTxt" layoutX="81.0" layoutY="369.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 10; -fx-border-color: #2C3A47; -fx-border-radius: 10;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="pwdField" layoutX="80.0" layoutY="369.0" prefHeight="46.0" prefWidth="390.0" promptText="password" style="-fx-background-radius: 10; -fx-border-color: #2C3A47; -fx-border-radius: 10;" />
+            <ImageView fx:id="eyeImage1" fitHeight="30.0" fitWidth="38.0" layoutX="434.0" layoutY="377.0" onMouseClicked="#eyeImage1OnMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image_2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="errLabel" layoutX="80.0" layoutY="452.0" prefHeight="18.0" prefWidth="451.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
