@@ -1,11 +1,13 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.CompleteEventBOImpl;
 import com.example.momentous.momentous_finalproject.db.DBConnection;
 import com.example.momentous.momentous_finalproject.dto.EventDto;
 import com.example.momentous.momentous_finalproject.dto.EventSupplierDto;
 import com.example.momentous.momentous_finalproject.dto.ItemDto;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
-import com.example.momentous.momentous_finalproject.dto.tm.EventTM;
+import com.example.momentous.momentous_finalproject.view.tdm.EventTM;
 import com.example.momentous.momentous_finalproject.model.BookingModel;
 import com.example.momentous.momentous_finalproject.model.EventModel;
 import com.example.momentous.momentous_finalproject.model.ItemModel;
@@ -144,6 +146,7 @@ public class EventViewController implements Initializable {
     private final ItemModel itemModel = new ItemModel();
     private final SupplierModel supplierModel = new SupplierModel();
 
+    CompleteEventBOImpl completeEventBO = (CompleteEventBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.COMPLETE_EVENT);
     private final ObservableList<EventTM> eventTMS = FXCollections.observableArrayList();
 
     @Override
@@ -177,7 +180,7 @@ public class EventViewController implements Initializable {
     }
 
     private void refreshPage() throws Exception {
-        eventIdLabel.setText(eventModel.getNextEventId());
+        eventIdLabel.setText(completeEventBO.getNextEventId());
 
         loadBookingIds();
         loadSupplierIds();
@@ -317,7 +320,7 @@ public class EventViewController implements Initializable {
     }
 
     private void loadSupplierIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> supplierIds = supplierModel.getAllSupplierIds();
+        ArrayList<String> supplierIds = completeEventBO.loadSupplierIds();
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(supplierIds);
@@ -325,7 +328,7 @@ public class EventViewController implements Initializable {
     }
 
     private void loadBookingIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> bookingIds = bookingModel.getAllBookingIds();
+        ArrayList<String> bookingIds = completeEventBO.loadBookingIds();
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(bookingIds);
@@ -335,7 +338,7 @@ public class EventViewController implements Initializable {
     @FXML
     void itemIdComBoxOnAction(ActionEvent event) throws SQLException, ClassNotFoundException{
         String selectedItemId = itemIdComBox.getSelectionModel().getSelectedItem();
-        ItemDto itemDto = itemModel.findById(selectedItemId);
+        ItemDto itemDto = completeEventBO.findByItemId(selectedItemId);
 
         if (itemDto != null) {
             itemNameLabel.setText(itemDto.getItemName());
@@ -347,7 +350,7 @@ public class EventViewController implements Initializable {
     @FXML
     void supplierIdComBoxOnAction(ActionEvent event) throws SQLException, ClassNotFoundException{
         String selectedSupplierId = supplierIdComBox.getSelectionModel().getSelectedItem();
-        SupplierDto supplierDto = supplierModel.findById(selectedSupplierId);
+        SupplierDto supplierDto = completeEventBO.findBySupplierId(selectedSupplierId);
 
         if (supplierDto != null) {
             supplierNameLabel.setText(supplierDto.getSupplierName());
@@ -356,13 +359,13 @@ public class EventViewController implements Initializable {
     }
 
     private void loadItemIds(String supplierId) throws SQLException, ClassNotFoundException {
-        ArrayList<String> itemIds = itemModel.getAllItemIds(supplierId);
+        ArrayList<String> itemIds = completeEventBO.loadItemIDs(supplierId);
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(itemIds);
         itemIdComBox.setItems(observableList);
     }
-
+//metana
     @FXML
     void comEventSetupButtonOnAction(ActionEvent event) throws Exception {
         if (eventViewTable.getItems().isEmpty()) {
@@ -410,7 +413,7 @@ public class EventViewController implements Initializable {
                 eventSupplierDtos
         );
 
-        boolean isSaved = eventModel.saveEvent(eventDto);
+        boolean isSaved = completeEventBO.completeEventCreation(eventDto);
 
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Event saved successfully..!").show();
