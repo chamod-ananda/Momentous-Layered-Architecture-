@@ -1,5 +1,4 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.view.tdm;
 
 import javafx.scene.control.Button;
 import lombok.*;
@@ -21,4 +20,3 @@ public class BookingTM {
     private Date bookingDate;
     private Button action;
 }
-*/

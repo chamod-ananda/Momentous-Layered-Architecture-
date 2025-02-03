@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BookingModel {
-    private final BookingServiceModel bookingServiceModel = new BookingServiceModel();
+    /*private final BookingServiceModel bookingServiceModel = new BookingServiceModel();
 
     public ArrayList<String> getAllBookingIds() throws SQLException {
         ResultSet rst = CrudUtil.execute("select booking_id from booking");
@@ -76,5 +76,5 @@ public class BookingModel {
                 connection.setAutoCommit(true);
             }
         }
-    }
+    }*/
 }

@@ -1,24 +1,24 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.view;
 
-import javafx.scene.control.Button;
+
 import lombok.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 
-public class BookingTM {
+public class Booking {
     private String bookingId;
     private String customerId;
-    private String serviceId;
     private int capacity;
     private String venue;
     private Date bookingDate;
-    private Button action;
+
+    private ArrayList<BookingService> bookingServices;
+
 }
-*/

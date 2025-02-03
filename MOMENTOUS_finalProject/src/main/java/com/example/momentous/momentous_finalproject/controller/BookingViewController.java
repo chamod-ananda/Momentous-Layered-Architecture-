@@ -1,11 +1,14 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.CreateBookingBOImpl;
+import com.example.momentous.momentous_finalproject.bo.impl.CustomerBOImpl;
 import com.example.momentous.momentous_finalproject.db.DBConnection;
 import com.example.momentous.momentous_finalproject.dto.BookingDto;
 import com.example.momentous.momentous_finalproject.dto.BookingServiceDto;
 import com.example.momentous.momentous_finalproject.dto.CustomerDto;
 import com.example.momentous.momentous_finalproject.dto.ServiceDto;
-import com.example.momentous.momentous_finalproject.dto.tm.BookingTM;
+import com.example.momentous.momentous_finalproject.view.tdm.BookingTM;
 import com.example.momentous.momentous_finalproject.model.BookingModel;
 import com.example.momentous.momentous_finalproject.model.CustomerModel;
 import com.example.momentous.momentous_finalproject.model.ServiceModel;
@@ -115,9 +118,9 @@ public class BookingViewController implements Initializable {
     @FXML
     private JFXButton detailButton;
 
-    private final BookingModel bookingModel = new BookingModel();
-    private final CustomerModel customerModel = new CustomerModel();
-    private final ServiceModel serviceModel = new ServiceModel();
+    private final CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
+    private final CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
+    //private final ServiceModel serviceModel = new ServiceModel();
 
     private final ObservableList<BookingTM> bookingTMS = FXCollections.observableArrayList();
 
@@ -145,7 +148,7 @@ public class BookingViewController implements Initializable {
     }
 
     private void refreshPage() throws SQLException, ClassNotFoundException {
-        bookingIdInfo.setText(bookingModel.getNextBookingId());
+        bookingIdInfo.setText(createBookingBO.getNextBookingId());
         dateInfo.setText(LocalDate.now().toString());
 
         loadCustomerIds();
@@ -163,7 +166,7 @@ public class BookingViewController implements Initializable {
     }
 
     private void loadServiceIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> serviceIds = serviceModel.getAllServiceIds();
+        ArrayList<String> serviceIds = createBookingBO.loadServiceIds();
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(serviceIds);
@@ -171,7 +174,7 @@ public class BookingViewController implements Initializable {
     }
 
     private void loadCustomerIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> customerIds = customerModel.getAllCustomerIds();
+        ArrayList<String> customerIds = createBookingBO.loadCustomerIds();
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(customerIds);
@@ -280,7 +283,7 @@ public class BookingViewController implements Initializable {
                 bookingServiceDtos
         );
 
-        boolean isSaved = bookingModel.saveBooking(bookingDto);
+        boolean isSaved = createBookingBO.saveBooking(bookingDto);
 
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Booking saved").show();
@@ -299,7 +302,7 @@ public class BookingViewController implements Initializable {
     @FXML
     void customerIdComBox(ActionEvent event) throws SQLException, ClassNotFoundException {
         String selectedCustomerId = customerIdComBox.getSelectionModel().getSelectedItem();
-        CustomerDto customerDto = customerModel.findByCustomerId(selectedCustomerId);
+        CustomerDto customerDto = customerBO.findById(selectedCustomerId);
 
         if (customerDto != null) {
 
@@ -310,7 +313,7 @@ public class BookingViewController implements Initializable {
     @FXML
     void serviceIdComBoxOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String selectedServiceId = serviceIdComBox.getSelectionModel().getSelectedItem();
-        ServiceDto serviceDto = serviceModel.findById(selectedServiceId);
+        ServiceDto serviceDto = createBookingBO.findById(selectedServiceId);
 
         if (serviceDto != null) {
 
