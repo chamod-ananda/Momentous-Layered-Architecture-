@@ -1,6 +1,7 @@
 package com.example.momentous.momentous_finalproject.controller;
 
-import com.example.momentous.momentous_finalproject.model.UserModel;
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -51,7 +52,7 @@ public class RegisterPage2Controller {
     @FXML
     private TextField uNameTxt;
 
-    private UserModel userModel = new UserModel();
+    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     private static final String USERNAME_PATTERN = "^[a-zA-Z0-9_]{5,15}$";
 
@@ -68,7 +69,7 @@ public class RegisterPage2Controller {
     }
 
     @FXML
-    void registerButtonOnAction(ActionEvent event) throws SQLException {
+    void registerButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         saveUser();
     }
 
@@ -77,7 +78,7 @@ public class RegisterPage2Controller {
         loadUI("/view/registerPage1.fxml");
     }
 
-    private void saveUser() throws SQLException {
+    private void saveUser() throws SQLException, ClassNotFoundException {
         if (areFieldsEmpty()) {
             showErrorMessage("*Required fields cannot be empty");
         } else if (!isValidUserName(uNameTxt.getText())) {
@@ -90,7 +91,7 @@ public class RegisterPage2Controller {
             RegisterPage1Controller.registerUser.setUserName(uNameTxt.getText());
             RegisterPage1Controller.registerUser.setPassword(conPwdField.getText());
 
-            if (userModel.saveUser(RegisterPage1Controller.registerUser)) {
+            if (userBO.saveUser(RegisterPage1Controller.registerUser)) {
                 loadUI("/view/loginPage.fxml");
             } else {
                 showErrorMessage("*User not saved.");

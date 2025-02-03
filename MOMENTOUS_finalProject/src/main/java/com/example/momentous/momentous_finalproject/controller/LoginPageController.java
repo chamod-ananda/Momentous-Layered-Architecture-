@@ -1,7 +1,9 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
 import com.example.momentous.momentous_finalproject.dto.UserDto;
-import com.example.momentous.momentous_finalproject.model.UserModel;
+//import com.example.momentous.momentous_finalproject.model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -58,7 +60,7 @@ public class LoginPageController implements Initializable {
     @FXML
     private TextField userNameTxt;
 
-    private UserModel userModel = new UserModel();
+    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     private boolean isPasswordVisible = false;
 
@@ -82,7 +84,7 @@ public class LoginPageController implements Initializable {
     }
 
     @FXML
-    void logInButtonOnAction(ActionEvent event) throws SQLException {
+    void logInButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (checkUserNameAndPassword()){
             loadUI("/view/dashboardPage.fxml");
         }else {
@@ -109,8 +111,8 @@ public class LoginPageController implements Initializable {
         loadUI("/view/registerPage1.fxml");
     }
 
-    private boolean checkUserNameAndPassword() throws SQLException {
-        List<UserDto> allUsers = userModel.getAllUsers();
+    private boolean checkUserNameAndPassword() throws SQLException, ClassNotFoundException {
+        List<UserDto> allUsers = userBO.getAllUsers();
 
         for (UserDto userDto : allUsers) {
             if (userDto.getUserName().equals(userNameTxt.getText()) && userDto.getPassword().equals(pwdField.getText())) {

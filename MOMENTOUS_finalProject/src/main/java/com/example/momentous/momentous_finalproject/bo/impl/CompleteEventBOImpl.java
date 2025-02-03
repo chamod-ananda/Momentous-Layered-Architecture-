@@ -102,7 +102,7 @@ public class CompleteEventBOImpl implements CompleteEventBO {
             }
 
             // Save booking services
-            boolean isSaved = eventSupplierDAO.saveEventSuppliersList(event.geteventSupplierList());
+            boolean isSaved = eventSupplierDAO.saveEventSuppliersList(event.getEventSuppliersList());
             if (!isSaved) {
                 connection.rollback(); // Rollback on failure
                 return false;

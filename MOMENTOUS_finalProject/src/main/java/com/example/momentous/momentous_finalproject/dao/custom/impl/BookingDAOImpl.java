@@ -1,14 +1,16 @@
 package com.example.momentous.momentous_finalproject.dao.custom.impl;
 
 import com.example.momentous.momentous_finalproject.dao.custom.BookingDAO;
+import com.example.momentous.momentous_finalproject.dao.custom.BookingServiceDAO;
 import com.example.momentous.momentous_finalproject.util.CrudUtil;
-import com.example.momentous.momentous_finalproject.view.Booking;
+import com.example.momentous.momentous_finalproject.entity.Booking;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BookingDAOImpl implements BookingDAO {
+
     BookingServiceDAO bookingServiceDAO = new BookingServiceDAOImpl();
 
     public ArrayList<String> getAllIds() throws SQLException {

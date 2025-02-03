@@ -4,7 +4,6 @@ import com.example.momentous.momentous_finalproject.bo.BOFactory;
 import com.example.momentous.momentous_finalproject.bo.impl.ServiceBOImpl;
 import com.example.momentous.momentous_finalproject.dto.ServiceDto;
 import com.example.momentous.momentous_finalproject.view.tdm.ServiceTM;
-import com.example.momentous.momentous_finalproject.model.ServiceModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;

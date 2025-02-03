@@ -4,10 +4,12 @@ import com.example.momentous.momentous_finalproject.bo.BOFactory;
 import com.example.momentous.momentous_finalproject.bo.CreateBookingBO;
 import com.example.momentous.momentous_finalproject.dao.DAOFactory;
 import com.example.momentous.momentous_finalproject.dao.custom.impl.BookingDAOImpl;
+import com.example.momentous.momentous_finalproject.dao.custom.impl.BookingServiceDAOImpl;
 import com.example.momentous.momentous_finalproject.db.DBConnection;
 import com.example.momentous.momentous_finalproject.dto.BookingDto;
 import com.example.momentous.momentous_finalproject.dto.ServiceDto;
-import com.example.momentous.momentous_finalproject.view.Booking;
+import com.example.momentous.momentous_finalproject.entity.BookingService;
+import com.example.momentous.momentous_finalproject.entity.Booking;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -1,7 +1,8 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
 import com.example.momentous.momentous_finalproject.dto.UserDto;
-import com.example.momentous.momentous_finalproject.model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -66,7 +67,7 @@ public class OtpVerifiedPageController implements Initializable {
 
     private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
 
-    private UserModel userModel = new UserModel();
+    private UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     private boolean isPasswordVisible = false;
 
@@ -87,7 +88,7 @@ public class OtpVerifiedPageController implements Initializable {
     }
 
     @FXML
-    void resetPwdButtonOnAction(ActionEvent event) throws SQLException {
+    void resetPwdButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (areFieldsEmpty()) {
             showErrorMessage("*Required fields cannot be empty");
         } else if (!isValidPassword(passwordField2.getText())) {
@@ -131,12 +132,12 @@ public class OtpVerifiedPageController implements Initializable {
         isConfirmPasswordVisible = !isConfirmPasswordVisible;
     }
 
-    private boolean updateUser() throws SQLException {
-        final List<UserDto> allUsers = userModel.getAllUsers();
+    private boolean updateUser() throws SQLException, ClassNotFoundException {
+        final List<UserDto> allUsers = userBO.getAllUsers();
         for (UserDto userDto : allUsers) {
             if (userDto.getEmail().equals(ForgotPasswordPageController.emailAddress)) {
                 userDto.setPassword(passwordField2.getText());
-                userModel.updateUser(userDto);
+                userBO.updateUser(userDto);
                 return true;
             }
         }

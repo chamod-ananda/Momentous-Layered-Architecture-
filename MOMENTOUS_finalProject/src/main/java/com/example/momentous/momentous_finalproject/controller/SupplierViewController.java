@@ -4,7 +4,6 @@ import com.example.momentous.momentous_finalproject.bo.BOFactory;
 import com.example.momentous.momentous_finalproject.bo.impl.SupplierBOImpl;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
 import com.example.momentous.momentous_finalproject.view.tdm.SupplierTM;
-import com.example.momentous.momentous_finalproject.model.SupplierModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

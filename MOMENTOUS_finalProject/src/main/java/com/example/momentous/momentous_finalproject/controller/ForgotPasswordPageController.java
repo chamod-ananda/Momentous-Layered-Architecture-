@@ -1,6 +1,8 @@
 package com.example.momentous.momentous_finalproject.controller;
 
-import com.example.momentous.momentous_finalproject.model.UserModel;
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
+//import com.example.momentous.momentous_finalproject.model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -45,7 +47,7 @@ public class ForgotPasswordPageController implements Initializable {
 
     public static String emailAddress = "";
 
-    private UserModel userModel = new UserModel();
+    UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
     SendMailController sendMailController = new SendMailController();
 
     @Override
@@ -71,7 +73,7 @@ public class ForgotPasswordPageController implements Initializable {
     public static String otpGenerated = "0000";
 
     @FXML
-    void submitButtonOnAction(ActionEvent event) throws SQLException {
+    void submitButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
 
         if (areFieldsEmpty()) {
             showErrorMessage("*Required fields cannot be empty");
@@ -95,8 +97,8 @@ public class ForgotPasswordPageController implements Initializable {
         return String.valueOf(otp);
     }
 
-    private boolean isValidEmailAddress() throws SQLException {
-        return userModel.isEmailExists(email2Txt.getText());
+    private boolean isValidEmailAddress() throws SQLException, ClassNotFoundException {
+        return userBO.isEmailExists(email2Txt.getText());
     }
 
     private boolean areFieldsEmpty() {

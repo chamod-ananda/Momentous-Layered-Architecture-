@@ -1,11 +1,10 @@
 package com.example.momentous.momentous_finalproject.controller;
 
 import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.CreateBookingBOImpl;
 import com.example.momentous.momentous_finalproject.bo.impl.PaymentBOImpl;
 import com.example.momentous.momentous_finalproject.dto.PaymentDto;
 import com.example.momentous.momentous_finalproject.view.tdm.PayamentTM;
-import com.example.momentous.momentous_finalproject.model.BookingModel;
-import com.example.momentous.momentous_finalproject.model.PaymentModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -230,7 +229,7 @@ public class PaymentViewController implements Initializable {
     }
 
     private void loadBookingIds() throws ClassNotFoundException, SQLException {
-        ArrayList<String> bookingIds = bookingModel.getAllBookingIds();
+        ArrayList<String> bookingIds = createBookingBO.loadAllBookingIds();
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(bookingIds);

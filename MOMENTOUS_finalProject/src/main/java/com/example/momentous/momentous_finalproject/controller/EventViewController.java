@@ -8,10 +8,6 @@ import com.example.momentous.momentous_finalproject.dto.EventSupplierDto;
 import com.example.momentous.momentous_finalproject.dto.ItemDto;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
 import com.example.momentous.momentous_finalproject.view.tdm.EventTM;
-import com.example.momentous.momentous_finalproject.model.BookingModel;
-import com.example.momentous.momentous_finalproject.model.EventModel;
-import com.example.momentous.momentous_finalproject.model.ItemModel;
-import com.example.momentous.momentous_finalproject.model.SupplierModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -141,10 +137,10 @@ public class EventViewController implements Initializable {
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 
-    private final EventModel eventModel = new EventModel();
+    /*private final EventModel eventModel = new EventModel();
     private final BookingModel bookingModel = new BookingModel();
     private final ItemModel itemModel = new ItemModel();
-    private final SupplierModel supplierModel = new SupplierModel();
+    private final SupplierModel supplierModel = new SupplierModel();*/
 
     CompleteEventBOImpl completeEventBO = (CompleteEventBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.COMPLETE_EVENT);
     private final ObservableList<EventTM> eventTMS = FXCollections.observableArrayList();

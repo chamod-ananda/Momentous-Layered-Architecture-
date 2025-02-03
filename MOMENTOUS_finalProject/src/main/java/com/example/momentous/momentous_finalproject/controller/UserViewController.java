@@ -4,7 +4,6 @@ import com.example.momentous.momentous_finalproject.bo.BOFactory;
 import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
 import com.example.momentous.momentous_finalproject.dto.UserDto;
 import com.example.momentous.momentous_finalproject.view.tdm.UserTM;
-import com.example.momentous.momentous_finalproject.model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

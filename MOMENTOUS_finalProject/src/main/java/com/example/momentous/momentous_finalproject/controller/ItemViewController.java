@@ -2,11 +2,12 @@ package com.example.momentous.momentous_finalproject.controller;
 
 import com.example.momentous.momentous_finalproject.bo.BOFactory;
 import com.example.momentous.momentous_finalproject.bo.impl.ItemBOImpl;
+import com.example.momentous.momentous_finalproject.bo.impl.SupplierBOImpl;
 import com.example.momentous.momentous_finalproject.dto.ItemDto;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
-import com.example.momentous.momentous_finalproject.view.tdm.ItemTM;
+import com.example.momentous.momentous_finalproject.view.tdm.ItemTM;/*
 import com.example.momentous.momentous_finalproject.model.ItemModel;
-import com.example.momentous.momentous_finalproject.model.SupplierModel;
+import com.example.momentous.momentous_finalproject.model.SupplierModel;*/
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -299,7 +300,7 @@ public class ItemViewController implements Initializable {
     @FXML
     void supIdComBoxOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String selectedSupplierId = supIdComBox.getSelectionModel().getSelectedItem();
-        SupplierDto supplierDto = supplierModel.findById(selectedSupplierId);
+        SupplierDto supplierDto = supplierBO.findById(selectedSupplierId);
 
         if (supplierDto != null) {
             nameLabel.setText(supplierDto.getSupplierName());
@@ -307,7 +308,7 @@ public class ItemViewController implements Initializable {
     }
 
     private void loadSupplierIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> supplierIds = supplierModel.getAllSupplierIds();
+        ArrayList<String> supplierIds = supplierBO.getAllSupplierIds();
 
         ObservableList<String> observableList = FXCollections.observableArrayList();
         observableList.addAll(supplierIds);

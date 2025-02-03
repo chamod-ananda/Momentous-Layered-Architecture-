@@ -1,7 +1,8 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.UserBOImpl;
 import com.example.momentous.momentous_finalproject.dto.UserDto;
-import com.example.momentous.momentous_finalproject.model.UserModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -53,7 +54,7 @@ public class RegisterPage1Controller {
 
     public static UserDto registerUser = new UserDto();
 
-    private UserModel userModel = new UserModel();
+    private UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@gmail\\.com$";
 
@@ -69,17 +70,17 @@ public class RegisterPage1Controller {
     }
 
     @FXML
-    void nextButtonOnAction(ActionEvent event) throws SQLException {
+    void nextButtonOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         navigateToRegisterPage2();
     }
 
-    private void navigateToRegisterPage2() throws SQLException {
+    private void navigateToRegisterPage2() throws SQLException, ClassNotFoundException {
         if (areFieldsEmpty()){
             showErrorMessage("*Required fields cannot be empty.");
         } else if (!isValidEmail(emailTxt.getText())) {
             showErrorMessage("*Invalid email format");
         } else {
-            registerUser.setUserId(userModel.getNextUserId());
+            registerUser.setUserId(userBO.getNextUserId());
             registerUser.setEmail(emailTxt.getText());
             registerUser.setFirstName(fNameTxt.getText());
             registerUser.setLastName(sNameTxt.getText());

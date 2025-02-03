@@ -1,6 +1,7 @@
-package com.example.momentous.momentous_finalproject.view;
+package com.example.momentous.momentous_finalproject.entity;
 
 
+import com.example.momentous.momentous_finalproject.entity.BookingService;
 import lombok.*;
 
 import java.sql.Date;
