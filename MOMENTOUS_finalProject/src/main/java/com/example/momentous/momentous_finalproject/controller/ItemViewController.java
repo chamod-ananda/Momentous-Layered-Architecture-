@@ -1,8 +1,10 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.ItemBOImpl;
 import com.example.momentous.momentous_finalproject.dto.ItemDto;
 import com.example.momentous.momentous_finalproject.dto.SupplierDto;
-import com.example.momentous.momentous_finalproject.dto.tm.ItemTM;
+import com.example.momentous.momentous_finalproject.view.tdm.ItemTM;
 import com.example.momentous.momentous_finalproject.model.ItemModel;
 import com.example.momentous.momentous_finalproject.model.SupplierModel;
 import com.jfoenix.controls.JFXButton;
@@ -103,8 +105,8 @@ public class ItemViewController implements Initializable {
     @FXML
     private JFXButton updateButton;
 
-    private final ItemModel itemModel = new ItemModel();
-    private final SupplierModel supplierModel = new SupplierModel();
+    private final ItemBOImpl itemBO = (ItemBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
+    private final SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String DESCRIPTION_PATTERN = "^[A-Za-z0-9 ,.-]+$";
@@ -135,7 +137,7 @@ public class ItemViewController implements Initializable {
     private void refreshPage() {
         try {
             refreshTable();
-            String itemId = itemModel.getNextItemId();
+            String itemId = itemBO.getNextItemId();
             itemIdLabelInfo.setText(itemId);
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,7 +154,7 @@ public class ItemViewController implements Initializable {
     }
 
     private void refreshTable() throws Exception, ClassNotFoundException {
-        ArrayList<ItemDto> itemDtos = itemModel.getAllItems();
+        ArrayList<ItemDto> itemDtos = itemBO.getAllItems();
         ObservableList<ItemTM> itemTMS = FXCollections.observableArrayList();
 
         for (ItemDto itemDto : itemDtos) {
@@ -177,7 +179,7 @@ public class ItemViewController implements Initializable {
         Optional<ButtonType> buttonType = alert.showAndWait();
 
         if (buttonType.get() == ButtonType.YES) {
-            boolean isDeleted = itemModel.deleteItem(itemId);
+            boolean isDeleted = itemBO.deleteItem(itemId);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "Item deleted successfully").show();
@@ -217,7 +219,7 @@ public class ItemViewController implements Initializable {
 
         if (itemDto != null) {
             try {
-                boolean isSaved = itemModel.saveItem(itemDto);
+                boolean isSaved = itemBO.saveItem(itemDto);
 
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION, "Item saved successfully").show();
@@ -237,7 +239,7 @@ public class ItemViewController implements Initializable {
 
         if (itemDto != null) {
             try {
-                boolean isUpdate = itemModel.updateItem(itemDto);
+                boolean isUpdate = itemBO.updateItem(itemDto);
 
                 if (isUpdate) {
                     new Alert(Alert.AlertType.INFORMATION, "Item updated successfully").show();

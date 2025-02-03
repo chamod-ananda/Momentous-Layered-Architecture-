@@ -1,3 +1,4 @@
+/*
 package com.example.momentous.momentous_finalproject.dto.tm;
 
 import javafx.scene.control.Button;
@@ -27,3 +28,4 @@ public class EventTM {
     private double totalPrice;
     private Button action;
 }
+*/
