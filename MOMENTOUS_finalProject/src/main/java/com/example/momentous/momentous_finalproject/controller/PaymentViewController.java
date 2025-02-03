@@ -1,7 +1,9 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.PaymentBOImpl;
 import com.example.momentous.momentous_finalproject.dto.PaymentDto;
-import com.example.momentous.momentous_finalproject.dto.tm.PayamentTM;
+import com.example.momentous.momentous_finalproject.view.tdm.PayamentTM;
 import com.example.momentous.momentous_finalproject.model.BookingModel;
 import com.example.momentous.momentous_finalproject.model.PaymentModel;
 import com.jfoenix.controls.JFXButton;
@@ -71,8 +73,8 @@ public class PaymentViewController implements Initializable {
     private static final String DATE_PATTERN = "^(19|20)\\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
     private static final String AMOUNT_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 
-    private final PaymentModel paymentModel = new PaymentModel();
-    private final BookingModel bookingModel = new BookingModel();
+    private final PaymentBOImpl paymentBo = (PaymentBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.PAYMENT);
+    private final CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,7 +99,7 @@ public class PaymentViewController implements Initializable {
         refreshTable();
 
         try{
-            String paymentId = paymentModel.getNextPaymentId();
+            String paymentId = paymentBo.getNextPaymentId();
             paymentIdLabel.setText(paymentId);
         }catch (Exception e){
             e.printStackTrace();
@@ -112,7 +114,7 @@ public class PaymentViewController implements Initializable {
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
-        ArrayList<PaymentDto> paymentDtos = paymentModel.getAllItems();
+        ArrayList<PaymentDto> paymentDtos = paymentBo.getAllPayments();
         ObservableList<PayamentTM> paymentTMS = FXCollections.observableArrayList();
 
         for(PaymentDto paymentDto : paymentDtos){
@@ -137,7 +139,7 @@ public class PaymentViewController implements Initializable {
 
         if (buttonType.get() == ButtonType.YES) {
 
-            boolean isDeleted = paymentModel.deletePayment(paymentId);
+            boolean isDeleted = paymentBo.deletePayment(paymentId);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "Payment deleted successfully").show();
@@ -162,7 +164,7 @@ public class PaymentViewController implements Initializable {
 
         if(paymentDto != null) {
             try {
-                boolean isSaved = paymentModel.savePayment(paymentDto);
+                boolean isSaved = paymentBo.savePayment(paymentDto);
 
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION, "Payment saved successfully").show();
@@ -212,7 +214,7 @@ public class PaymentViewController implements Initializable {
 
         if(paymentDto != null) {
             try {
-                boolean isSaved = paymentModel.updatePayment(paymentDto);
+                boolean isSaved = paymentBo.updatePayment(paymentDto);
 
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION, "Payment update successfully").show();

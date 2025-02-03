@@ -1,5 +1,4 @@
-/*
-package com.example.momentous.momentous_finalproject.dto.tm;
+package com.example.momentous.momentous_finalproject.entity;
 
 import lombok.*;
 
@@ -11,10 +10,9 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class PayamentTM {
+public class Payment {
     private String paymentId;
     private Date paymentDate;
     private Double paymentAmount;
     private String bookingId;
 }
-*/

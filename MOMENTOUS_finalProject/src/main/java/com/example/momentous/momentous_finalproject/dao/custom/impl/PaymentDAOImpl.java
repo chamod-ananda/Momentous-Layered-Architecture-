@@ -1,14 +1,16 @@
-package com.example.momentous.momentous_finalproject.model;
+package com.example.momentous.momentous_finalproject.dao.custom.impl;
 
+import com.example.momentous.momentous_finalproject.dao.custom.PaymentDAO;
 import com.example.momentous.momentous_finalproject.dto.PaymentDto;
+import com.example.momentous.momentous_finalproject.entity.Payment;
 import com.example.momentous.momentous_finalproject.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PaymentModel {
-    /*public String getNextPaymentId() throws SQLException, ClassNotFoundException {
+public class PaymentDAOImpl implements PaymentDAO {
+    public String getNextId() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select payment_id from payment order by payment_id desc limit 1");
 
         if (rst.next()) {
@@ -19,27 +21,27 @@ public class PaymentModel {
             return String.format("P%03d", newIdIndex);
         }
         return "P001";
-    }*/
+    }
 
-    /*public ArrayList<PaymentDto> getAllItems() throws SQLException, ClassNotFoundException {
+    public ArrayList<Payment> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select * from payment");
 
-        ArrayList<PaymentDto> paymentDtos = new ArrayList<>();
+        ArrayList<Payment> paymentLists = new ArrayList<>();
 
         while (rst.next()) {
-            PaymentDto paymentDto = new PaymentDto(
+            Payment payment = new Payment(
                     rst.getString(1),
                     rst.getDate(2),
                     rst.getDouble(3),
                     rst.getString(4)
 
             );
-            paymentDtos.add(paymentDto);
+            paymentLists.add(payment);
         }
-        return paymentDtos;
-    }*/
+        return paymentLists;
+    }
 
-    /*public boolean savePayment(PaymentDto paymentDto) throws SQLException, ClassNotFoundException {
+    public boolean save(PaymentDto paymentDto) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into payment values(?,?,?,?)",
                 paymentDto.getPaymentId(),
                 paymentDto.getPaymentDate(),
@@ -47,9 +49,9 @@ public class PaymentModel {
                 paymentDto.getBookingId()
 
         );
-    }*/
+    }
 
-    /*public boolean updatePayment(PaymentDto paymentDto) throws SQLException, ClassNotFoundException {
+    public boolean update(PaymentDto paymentDto) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute(
                 "update payment set  date = ?, amount = ?, booking_id = ? where payment_id = ?",
                 paymentDto.getPaymentDate(),
@@ -57,9 +59,17 @@ public class PaymentModel {
                 paymentDto.getBookingId(),
                 paymentDto.getPaymentId()
         );
-    }*/
+    }
 
-    /*public boolean deletePayment(String paymentId) throws SQLException, ClassNotFoundException {
+    public boolean delete(String paymentId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from payment where payment_id=?", paymentId);
-    }*/
+    }
+
+    public Payment findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
+        return null;
+    }
 }
