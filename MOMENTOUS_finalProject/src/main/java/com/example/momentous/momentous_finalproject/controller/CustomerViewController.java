@@ -1,11 +1,10 @@
 package com.example.momentous.momentous_finalproject.controller;
 
 import com.example.momentous.momentous_finalproject.bo.BOFactory;
-import com.example.momentous.momentous_finalproject.bo.CustomerBOImpl;
+import com.example.momentous.momentous_finalproject.bo.impl.CustomerBOImpl;
 import com.example.momentous.momentous_finalproject.db.DBConnection;
 import com.example.momentous.momentous_finalproject.dto.CustomerDto;
 import com.example.momentous.momentous_finalproject.view.tdm.CustomerTM;
-import com.example.momentous.momentous_finalproject.model.CustomerModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;

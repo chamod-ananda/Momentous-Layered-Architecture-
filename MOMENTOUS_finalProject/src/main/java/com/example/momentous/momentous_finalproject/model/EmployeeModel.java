@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeeModel {
-    public String getNextEmployeeId() throws SQLException, ClassNotFoundException {
+    /*public String getNextEmployeeId() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("SELECT employee_id FROM employee ORDER BY employee_id DESC LIMIT 1");
 
         if (rst.next()) {
@@ -21,9 +21,9 @@ public class EmployeeModel {
             return String.format("M%03d", newIndex);
         }
         return "M001";
-    }
+    }*/
 
-    public ArrayList<EmployeeDto> getAllEmployees() throws SQLException, ClassNotFoundException {
+    /*public ArrayList<EmployeeDto> getAllEmployees() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select * from employee");
 
         ArrayList<EmployeeDto> employeeDtos = new ArrayList<>();
@@ -43,9 +43,9 @@ public class EmployeeModel {
             employeeDtos.add(dto);
         }
         return employeeDtos;
-    }
+    }*/
 
-    public boolean deleteEmployee(String employeeId) throws SQLException, ClassNotFoundException {
+    /*public boolean deleteEmployee(String employeeId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from employee where employee_id = ?", employeeId);
     }
 
@@ -60,9 +60,9 @@ public class EmployeeModel {
                 dto.getEmail(),
                 dto.getBookingId()
         );
-    }
+    }*/
 
-    public boolean updateEmployee(EmployeeDto employeeDto) throws SQLException, ClassNotFoundException {
+    /*public boolean updateEmployee(EmployeeDto employeeDto) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute(
                 "update employee set  first_name = ?,  last_name = ?, position = ?, Join_date = ?, salary = ?, email = ?, booking_id  = ? where employee_id = ?",
                 employeeDto.getFirstName(),
@@ -74,7 +74,7 @@ public class EmployeeModel {
                 employeeDto.getBookingId(),
                 employeeDto.getEmployeeId()
         );
-    }
+    }*/
 }
 
 

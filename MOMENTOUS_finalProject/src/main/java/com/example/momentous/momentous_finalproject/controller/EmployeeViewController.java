@@ -1,7 +1,9 @@
 package com.example.momentous.momentous_finalproject.controller;
 
+import com.example.momentous.momentous_finalproject.bo.BOFactory;
+import com.example.momentous.momentous_finalproject.bo.impl.EmployeeBOImpl;
 import com.example.momentous.momentous_finalproject.dto.EmployeeDto;
-import com.example.momentous.momentous_finalproject.dto.tm.EmployeeTM;
+import com.example.momentous.momentous_finalproject.view.tdm.EmployeeTM;
 import com.example.momentous.momentous_finalproject.model.BookingModel;
 import com.example.momentous.momentous_finalproject.model.EmployeeModel;
 import com.jfoenix.controls.JFXButton;
@@ -113,8 +115,8 @@ public class EmployeeViewController implements Initializable {
     @FXML
     private JFXButton updateButton;
 
-    private final EmployeeModel employeeModel = new EmployeeModel();
-    private final BookingModel bookingModel = new BookingModel();
+    private final EmployeeBOImpl employeeBO = (EmployeeBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.EMPLOYEE);
+    private final CreateBookingBOImpl bookingBo = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String EMAIL_PATTERN = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -147,7 +149,7 @@ public class EmployeeViewController implements Initializable {
     private void refreshPage() {
         try{
             refreshTable();
-            String employeeId = employeeModel.getNextEmployeeId();
+            String employeeId = employeeBO.getNextEmployeeId();
             employeeIdInfo.setText(employeeId);
         }catch (Exception e){
             e.printStackTrace();
@@ -170,7 +172,7 @@ public class EmployeeViewController implements Initializable {
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
-        ArrayList<EmployeeDto> employeeDtos = employeeModel.getAllEmployees();
+        ArrayList<EmployeeDto> employeeDtos = employeeBO.getAllEmployees();
         ObservableList<EmployeeTM> employeeTms = FXCollections.observableArrayList();
 
         for(EmployeeDto employeeDto : employeeDtos){
@@ -199,7 +201,7 @@ public class EmployeeViewController implements Initializable {
         Optional<ButtonType> buttonType = alert.showAndWait();
 
         if (buttonType.get() == ButtonType.YES) {
-            boolean isDeleted = employeeModel.deleteEmployee(employeeId);
+            boolean isDeleted = employeeBO.deleteEmployee(employeeId);
 
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION, "Employee deleted").show();
@@ -247,7 +249,7 @@ public class EmployeeViewController implements Initializable {
 
         if(employeeDto != null) {
             try {
-                boolean isSaved = employeeModel.saveEmployee(employeeDto);
+                boolean isSaved = employeeBO.saveEmployee(employeeDto);
 
                 if (isSaved) {
                     showAlert("Employee saved successfully", Alert.AlertType.INFORMATION);
@@ -309,7 +311,7 @@ public class EmployeeViewController implements Initializable {
 
         if(employeeDto != null) {
             try{
-                boolean isUpdate = employeeModel.updateEmployee(employeeDto);
+                boolean isUpdate = employeeBO.updateEmployee(employeeDto);
 
                 if (isUpdate) {
                     new Alert(Alert.AlertType.INFORMATION, "Employee updated successfully").show();

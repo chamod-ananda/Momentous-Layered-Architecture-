@@ -1,5 +1,8 @@
 package com.example.momentous.momentous_finalproject.bo;
 
+import com.example.momentous.momentous_finalproject.bo.impl.CustomerBOImpl;
+import com.example.momentous.momentous_finalproject.bo.impl.EmployeeBOImpl;
+
 public class BOFactory {
     private static BOFactory boFactory;
     private BOFactory() {
