@@ -13,32 +13,32 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO {
-    public boolean save(UserDto userDto) throws SQLException {
+    public boolean save(User entity) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "insert into user values(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setString(1, userDto.getUserId());
-        preparedStatement.setString(2, userDto.getFirstName());
-        preparedStatement.setString(3, userDto.getLastName());
-        preparedStatement.setString(4, userDto.getUserName());
-        preparedStatement.setString(5, userDto.getEmail());
-        preparedStatement.setString(6, userDto.getPassword());
+        preparedStatement.setString(1, entity.getUserId());
+        preparedStatement.setString(2, entity.getFirstName());
+        preparedStatement.setString(3, entity.getLastName());
+        preparedStatement.setString(4, entity.getUserName());
+        preparedStatement.setString(5, entity.getEmail());
+        preparedStatement.setString(6, entity.getPassword());
 
         return preparedStatement.executeUpdate() > 0;
     }
 
-    public boolean update(UserDto userDto) throws SQLException{
+    public boolean update(User entity) throws SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "update user set first_name = ?, last_name = ?, username = ?, email = ?, password = ? where user_id = ?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, userDto.getFirstName());
-        preparedStatement.setString(2, userDto.getLastName());
-        preparedStatement.setString(3, userDto.getUserName());
-        preparedStatement.setString(4, userDto.getEmail());
-        preparedStatement.setString(5, userDto.getPassword());
-        preparedStatement.setString(6, userDto.getUserId());
+        preparedStatement.setString(1, entity.getFirstName());
+        preparedStatement.setString(2, entity.getLastName());
+        preparedStatement.setString(3, entity.getUserName());
+        preparedStatement.setString(4, entity.getEmail());
+        preparedStatement.setString(5, entity.getPassword());
+        preparedStatement.setString(6, entity.getUserId());
 
         return preparedStatement.executeUpdate() > 0;
     }
@@ -96,24 +96,24 @@ public class UserDAOImpl implements UserDAO {
         return users;
     }
 
-    @Override
-    public boolean save(User entity) throws SQLException, ClassNotFoundException {
-        return false;
-    }
+//    @Override
+//    public boolean save(User entity) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
 
     public boolean delete(String userId) throws SQLException {
         return CrudUtil.execute("delete from user where user_id = ?", userId);
     }
 
-    @Override
-    public boolean update(User entity) throws SQLException, ClassNotFoundException {
-        return false;
-    }
+//    @Override
+//    public boolean update(User entity) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
 
-    @Override
-    public User findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
-        return null;
-    }
+//    @Override
+//    public User findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+//        return null;
+//    }
 
     @Override
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
@@ -127,11 +127,11 @@ public class UserDAOImpl implements UserDAO {
         return userIds;
     }
 
-    public UserDto findBy(String selecctedUserId) throws SQLException {
+    public User findById(String selecctedUserId) throws SQLException {
         ResultSet rst = CrudUtil.execute("select * from user where user_id = ?", selecctedUserId);
 
         if (rst.next()) {
-            return new UserDto(
+            return new User(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),

@@ -9,7 +9,7 @@ module com.example.momentous.momentous_finalproject {
     requires net.sf.jasperreports.core;
     requires javax.mail.api;
 
-    opens com.example.momentous.momentous_finalproject.dto.tm to javafx.base;
+    opens com.example.momentous.momentous_finalproject.view.tdm to javafx.base;
     opens com.example.momentous.momentous_finalproject.controller to javafx.fxml;
     exports com.example.momentous.momentous_finalproject;
 }

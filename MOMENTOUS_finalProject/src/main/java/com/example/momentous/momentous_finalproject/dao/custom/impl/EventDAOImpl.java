@@ -41,18 +41,22 @@ public class EventDAOImpl implements EventDAO {
         return isEventSaved;
     }
 
+    @Override
     public boolean delete(String customerId) throws SQLException, ClassNotFoundException {
         return false;
     }
 
+    @Override
     public boolean update(Event entity) throws SQLException, ClassNotFoundException {
         return false;
     }
 
+    @Override
     public Event findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
         return null;
     }
 
+    @Override
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
         return null;
     }

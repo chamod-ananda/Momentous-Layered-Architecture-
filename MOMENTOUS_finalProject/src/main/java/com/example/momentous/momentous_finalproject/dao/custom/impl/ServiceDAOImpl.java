@@ -64,20 +64,20 @@ public class ServiceDAOImpl implements ServiceDAO {
         return services;
     }
 
-    public boolean save(ServiceDto serviceDto) throws SQLException, ClassNotFoundException {
+    public boolean save(Service entity) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into service values(?,?,?)",
-                serviceDto.getServiceId(),
-                serviceDto.getPrice(),
-                serviceDto.getServiceType()
+                entity.getServiceId(),
+                entity.getPrice(),
+                entity.getServiceType()
         );
     }
 
-    public boolean update(ServiceDto serviceDto) throws SQLException, ClassNotFoundException {
+    public boolean update(Service entity) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute(
                 "update service set  price = ?, service_type = ? where service_id = ?",
-                serviceDto.getPrice(),
-                serviceDto.getServiceType(),
-                serviceDto.getServiceId()
+                entity.getPrice(),
+                entity.getServiceType(),
+                entity.getServiceId()
         );
     }
 

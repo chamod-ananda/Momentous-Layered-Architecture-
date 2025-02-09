@@ -39,9 +39,6 @@ public class ServiceBOImpl implements ServiceBO {
                             service.getPrice(),
                             service.getServiceType()
                     ));
-
-
-
         }
         return serviceDtos;
     }

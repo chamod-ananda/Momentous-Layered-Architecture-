@@ -39,10 +39,10 @@ public class SupplierDAOImpl implements SupplierDAO {
         return suppliers;
     }
 
-    @Override
-    public boolean save(Supplier entity) throws SQLException, ClassNotFoundException {
-        return false;
-    }
+//    @Override
+//    public boolean save(Supplier entity) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
 
     public ArrayList<String> getAllIds() throws SQLException {
         ResultSet rst = CrudUtil.execute("select supplier_id from supplier");
@@ -70,21 +70,21 @@ public class SupplierDAOImpl implements SupplierDAO {
 
     }
 
-    public boolean save(SupplierDto supplierDto) throws SQLException {
+    public boolean save(Supplier entity) throws SQLException {
         return CrudUtil.execute("insert into supplier values(?,?,?)",
-                supplierDto.getSupplierId(),
-                supplierDto.getSupplierName(),
-                supplierDto.getEmail()
+                entity.getSupplierId(),
+                entity.getSupplierName(),
+                entity.getEmail()
 
         );
     }
 
-    public boolean update(SupplierDto supplierDto) throws SQLException {
+    public boolean update(Supplier entity) throws SQLException {
         return CrudUtil.execute(
                 "update supplier set  supplier_name = ?, email = ? where supplier_id = ?",
-                supplierDto.getSupplierName(),
-                supplierDto.getEmail(),
-                supplierDto.getSupplierId()
+                entity.getSupplierName(),
+                entity.getEmail(),
+                entity.getSupplierId()
         );
     }
 
@@ -92,8 +92,8 @@ public class SupplierDAOImpl implements SupplierDAO {
         return CrudUtil.execute("delete from supplier where supplier_id=?", supplierId);
     }
 
-    @Override
-    public boolean update(Supplier entity) throws SQLException, ClassNotFoundException {
-        return false;
-    }
+//    @Override
+//    public boolean update(Supplier entity) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
 }

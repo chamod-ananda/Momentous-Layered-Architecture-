@@ -22,4 +22,8 @@ public class Event {
     private Date date;
 
     private ArrayList<EventSupplier> eventSupplierList;
+
+    public ArrayList<EventSupplier> getEventSuppliersList() {
+        return null;
+    }
 }

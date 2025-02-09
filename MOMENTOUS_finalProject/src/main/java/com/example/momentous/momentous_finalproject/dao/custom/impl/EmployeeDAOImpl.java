@@ -76,10 +76,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return CrudUtil.execute("delete from employee where employee_id = ?", employeeId);
     }
 
+    @Override
     public Employee findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
         return null;
     }
 
+    @Override
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
         return null;
     }

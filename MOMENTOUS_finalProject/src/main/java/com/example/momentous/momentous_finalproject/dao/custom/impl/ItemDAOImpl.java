@@ -3,6 +3,7 @@ package com.example.momentous.momentous_finalproject.dao.custom.impl;
 import com.example.momentous.momentous_finalproject.dao.custom.ItemDAO;
 import com.example.momentous.momentous_finalproject.dto.EventSupplierDto;
 import com.example.momentous.momentous_finalproject.dto.ItemDto;
+import com.example.momentous.momentous_finalproject.entity.EventSupplier;
 import com.example.momentous.momentous_finalproject.entity.Item;
 import com.example.momentous.momentous_finalproject.util.CrudUtil;
 
@@ -44,6 +45,11 @@ public class ItemDAOImpl implements ItemDAO {
         return itemList;
     }
 
+//    @Override
+//    public boolean save(Item entity) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
+
     public Item findById(String selectedItemId) throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select * from item where item_id=?", selectedItemId);
 
@@ -60,10 +66,12 @@ public class ItemDAOImpl implements ItemDAO {
         return null;
     }
 
+    @Override
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
         return null;
     }
 
+    @Override
     public ArrayList<String> getAllItemIds(String supplierId) throws SQLException, ClassNotFoundException {
         String query = "SELECT item_id FROM item WHERE supplier_id = ?";
 
@@ -77,11 +85,16 @@ public class ItemDAOImpl implements ItemDAO {
         return itemIds;
     }
 
-    public boolean reduceQty(EventSupplierDto evenSupplierDto) throws SQLException, ClassNotFoundException {
+//    @Override
+//    public boolean reduceQty(EventSupplier eventSupplier) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
+
+    public boolean reduceQty(EventSupplier evenSupplier) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute(
                 "update item set quantity = quantity - ? where item_id = ?",
-                evenSupplierDto.getItemQuantity(),
-                evenSupplierDto.getItemId()
+                evenSupplier.getItemQuantity(),
+                evenSupplier.getItemId()
         );
     }
 
@@ -89,7 +102,12 @@ public class ItemDAOImpl implements ItemDAO {
         return CrudUtil.execute("delete from item where item_id=?", selectedItemId);
     }
 
-    public boolean save(ItemDto itemDto) throws SQLException, ClassNotFoundException {
+//    @Override
+//    public boolean update(Item entity) throws SQLException, ClassNotFoundException {
+//        return false;
+//    }
+
+    public boolean save(Item itemDto) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into item values(?,?,?,?,?,?)",
                 itemDto.getItemId(),
                 itemDto.getItemName(),
@@ -100,7 +118,7 @@ public class ItemDAOImpl implements ItemDAO {
         );
     }
 
-    public boolean update(ItemDto itemDto) throws SQLException {
+    public boolean update(Item itemDto) throws SQLException {
         return CrudUtil.execute("update item set item_name = ?, description = ?, cost = ?, quantity = ?, supplier_id = ? where item_id = ?",
                 itemDto.getItemName(),
                 itemDto.getItemDescription(),

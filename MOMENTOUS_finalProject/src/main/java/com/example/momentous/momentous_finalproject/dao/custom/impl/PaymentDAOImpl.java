@@ -41,23 +41,23 @@ public class PaymentDAOImpl implements PaymentDAO {
         return paymentLists;
     }
 
-    public boolean save(PaymentDto paymentDto) throws SQLException, ClassNotFoundException {
+    public boolean save(Payment entity) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into payment values(?,?,?,?)",
-                paymentDto.getPaymentId(),
-                paymentDto.getPaymentDate(),
-                paymentDto.getPaymentAmount(),
-                paymentDto.getBookingId()
+                entity.getPaymentId(),
+                entity.getPaymentDate(),
+                entity.getPaymentAmount(),
+                entity.getBookingId()
 
         );
     }
 
-    public boolean update(PaymentDto paymentDto) throws SQLException, ClassNotFoundException {
+    public boolean update(Payment entity) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute(
                 "update payment set  date = ?, amount = ?, booking_id = ? where payment_id = ?",
-                paymentDto.getPaymentDate(),
-                paymentDto.getPaymentAmount(),
-                paymentDto.getBookingId(),
-                paymentDto.getPaymentId()
+                entity.getPaymentDate(),
+                entity.getPaymentAmount(),
+                entity.getBookingId(),
+                entity.getPaymentId()
         );
     }
 
@@ -65,10 +65,12 @@ public class PaymentDAOImpl implements PaymentDAO {
         return CrudUtil.execute("delete from payment where payment_id=?", paymentId);
     }
 
+    @Override
     public Payment findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
         return null;
     }
 
+    @Override
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
         return null;
     }
