@@ -361,7 +361,7 @@ public class EventViewController implements Initializable {
         observableList.addAll(itemIds);
         itemIdComBox.setItems(observableList);
     }
-//metana
+
     @FXML
     void comEventSetupButtonOnAction(ActionEvent event) throws Exception {
         if (eventViewTable.getItems().isEmpty()) {

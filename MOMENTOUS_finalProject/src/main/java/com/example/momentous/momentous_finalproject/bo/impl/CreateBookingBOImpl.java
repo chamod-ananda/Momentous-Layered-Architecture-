@@ -18,9 +18,7 @@ import java.util.ArrayList;
 public class CreateBookingBOImpl implements CreateBookingBO {
     BookingServiceDAOImpl bookingServiceDAO = (BookingServiceDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING_SERVICE);
     BookingDAOImpl bookingDAO = (BookingDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING);
-    //ServiceDAO serviceDAO = new ServiceDAOImpl();
     ServiceBOImpl serviceBO = (ServiceBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
-    //CustomerDAO customerDAO = new CustomerDAOImpl();
     CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
     public ArrayList<String> loadServiceIds() throws SQLException, ClassNotFoundException {
         return serviceBO.getAllServiceIds();
