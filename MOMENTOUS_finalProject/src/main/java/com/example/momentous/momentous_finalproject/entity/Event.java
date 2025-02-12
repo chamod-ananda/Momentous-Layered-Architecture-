@@ -21,9 +21,7 @@ public class Event {
     private String venue;
     private Date date;
 
-    private ArrayList<EventSupplier> eventSupplierList;
+    private ArrayList<EventSupplier> eventSuppliersList;
 
-    public ArrayList<EventSupplier> getEventSuppliersList() {
-        return null;
-    }
+
 }
